@@ -1,0 +1,38 @@
+Static methods and properties
+-------------------------------------
+Static data:
+-> static data is sharable to every objects in all classes
+Instance data:
+-> instance data copy is not sharable to every object. Every objects
+     Contains a separate copy of all instance data.
+
+Notes:
+-> Static method directly can not use non static data.
+-> Non static methods can access directly static and non static data
+-> static methods can access only static data directly
+-> we need object in a static method to access non static data
+-> we need object in non static methods to access non static data   of  other classes
+-> static data of same class can be called directly from the same class.
+-> static data of other classes can be called with a class name of that static data which is having static methods
+-> calling static data in a same class or different class using objects is not recommended. 
+
+
+
+
+
+System.out.println();
+
+1. System class belongs to java.lang package
+2. Out is a static object of type java.io.PrintStream class which   defined in System class
+3. Static data can be called with class name if that data belongs to in other class. So out can be called with a class name System.
+4. By calling System.out , you will get java.io.PrintStream class object as a return type.
+5. On top of java.io.PrintStream class, you can access all methods
+    Of PrintStream class
+6. println() method belongs to java.io.PrintStream class.
+7. So we can directly invoke println method using System.out.println();
+
+
+
+
+
+

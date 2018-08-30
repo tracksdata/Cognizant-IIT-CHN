@@ -1,0 +1,29 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0
+                      http://maven.apache.org/xsd/settings-1.1.0.xsd">
+<localRepository>C:\Users\577782\.m2\repository</localRepository>
+<interactiveMode>true</interactiveMode>
+<usePluginRegistry/>
+<offline>true</offline>
+  <proxies>
+    <proxy>
+           <active>true</active>
+      <protocol>http</protocol>
+      <host>proxy.cognizant.com</host>
+      <port>6050</port>
+      <username>577782</username>
+      <password></password>
+      <nonProxyHosts/>
+    </proxy>
+  </proxies>
+
+<servers>
+<server>
+<id>TomcatServer</id>
+<username>admin</username>
+      <password>admin</password>
+</server>
+</servers>
+
+</settings>

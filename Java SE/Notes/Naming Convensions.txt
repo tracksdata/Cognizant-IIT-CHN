@@ -1,0 +1,58 @@
+Naming Conventions 
+------------------------
+1. Class
+--------
+	-> Every class in java should be starts with Capital letter. If there are
+          More than one words in a class name, then each word first letter
+		should be capitalised.
+	Ex: Employee, Test, DataInput, InputStreamReader
+
+
+2. method/variables/objects
+---------------------------------
+-> Every method should starts with lower case letter. If there are more 	than one word in a method name, then each word first letter should be
+     Capitalised 
+Ex: main (), fun(), processData(), employee, age, myAge, dispEmpData()
+
+3. Keywords/packages
+-------------------------
+-> Every keyword/ package name in java should be written in lower case 
+     Letters.
+
+Ex: com,  class, java.lang
+
+4. Constants
+----------------
+	-> Every word in constants  should be written as upper case letters.
+	Ex: PI, MAX_AGE, MAX_NUM
+
+
+Coding conventions 
+------------------------
+1. Every class or method or block must be started with "{" immediately.
+
+Ex: 
+   main(){
+    }
+
+class Test{
+
+}
+
+2. Every class name, method, variable and oject names should be 
+     Defined in a meaning full way
+Ex: class Person{
+       int personId;
+       String personName;
+	 }
+
+git config --global http.proxy http://12345:abcd@proxy.cognizant.com:6050
+
+Cos
+
+
+
+
+
+
+

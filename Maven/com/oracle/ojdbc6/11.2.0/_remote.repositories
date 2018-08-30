@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 27 03:36:47 IST 2018
+ojdbc6-11.2.0.jar>=
+ojdbc6-11.2.0.pom>=

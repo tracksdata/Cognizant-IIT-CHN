@@ -1,0 +1,22 @@
+Method Overloading
+------------------------
+-> Defining the same method name with different signature 
+
+Method signature
+--------------------
+	-> name of method
+	-> number of arguments
+	-> type of arguments 
+	-> position of arguments 
+Advantages?
+---------------
+	-> readability
+	-> same method to perform many operations
+EX: println();
+
+Notes
+----------
+-> its a static polymorphism concept. (Compile time decision)
+
+
+

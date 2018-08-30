@@ -1,0 +1,85 @@
+Java OOPS
+------------------
+1. class😭 : Blue Print
+	-> variables / properties / fields
+	-> methods
+	-> constructors
+	-> blocks
+	-> inner classes
+
+properties 
+---------------
+	-> instance 
+	-> static 
+	-> const
+	-> final
+
+Methods
+----------
+	-> instance methods
+	-> static methods
+	-> final methods
+	-> native methods
+	-> abstract methods
+
+Constructors
+--------------
+	-> default
+	-> parametrised constructors 
+
+blocks
+--------
+	-> instance block
+	-> static block
+
+Inner classes
+----------------
+	-> anonymous class
+	-> private inner classes
+	-> static inner classes
+
+Types of classes
+---------------------
+	-> concrete class
+	-> abstract class
+	-> static class
+	-> private class
+
+
+
+Objects
+----------
+	-> state
+	-> behaviour
+-> Class can exits with out objects. But vice versa not possible
+
+Types of Objects
+-------------------
+	-> simple type
+	-> complex type 
+
+-> When
+-> Where
+-> How
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
