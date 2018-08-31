@@ -1,0 +1,226 @@
+Encapulation
+-----------------
+
+-> Wrapping up of methods and properties in a class is called 
+      Encapsulation.
+
+1. Access modifiers
+	-> default
+	-> public
+	-> protected
+	-> private
+
+2. Packages
+	-> built in
+	-> user defined
+
+
+
+1. Packages
+-----------------
+-> Groups all the classes with a specified name.
+
+Advantages
+-----------
+	-> searching for classes are easy
+	-> data abstract can be achieved 
+	-> Security can be provided
+	-> classes can be organised in a proper way
+
+
+1. Default access modifier
+------------------------------
+-> Accessible with in the same package only
+-> no other package can not access default data of any class
+
+Ex: 
+ package com;
+  class Test{
+   int age;
+   String empName
+    void test(){
+      Use u=new Use(); // Invalid
+      Employee emp=new Employee(); // Valid
+    }
+  }
+
+package com;
+class Employee{
+	void test(){
+       Test t=new Test(); // Vallid
+    }
+}
+
+ package org;
+ class Use{
+    public void test(){
+		Test t=new Test();  // Invalid 
+    }
+ }
+
+2. Public
+-------------
+	-> public data can be exposed to all the classes from the same
+         Package and to the other package classes
+
+Ex: 
+ package com;
+  public class Test{
+   int age;
+   String empName
+
+   void fun(){ } // default
+   public void fun1(){} // public 
+    void test(){
+      Use u=new Use(); // Invalid
+      Employee emp=new Employee(); // Valid
+    }
+  }
+
+package com;
+class Employee{
+	void test(){
+       Test t=new Test(); // Vallid
+    }
+}
+
+ package org;
+ class Use{
+    public void test(){
+		Test t=new Test();  // Valid 
+         t.fun(); // Invalid
+         t.fun1(); // Valid
+    }
+ }
+
+3. Protected 
+---------------
+-> protected data is available to all the classes from the same 
+    Package, and to all the sub class's  objects of different package
+
+Ex: 
+ package com;
+  protected class Test{
+   int age;
+   String empName
+
+   void fun(){ } // default
+   public void fun1(){} // public 
+   protected void fun2();
+    void test(){
+      Use u=new Use(); // Invalid
+      Employee emp=new Employee(); // Valid
+    }
+  }
+
+package com;
+class Employee{
+	void test(){
+       Test t=new Test(); // Vallid
+    }
+}
+
+ package org;
+ class Use extends Test{ // Inheritance 
+    public void test(){
+		Test t=new Test();  // InValid 
+         Use u=new Use(); // Valid
+       
+	     t.fun(); // Invalid
+         t.fun1();// Invalid 
+         t.fun2(); // Invalid
+ 
+        u.fun1(); // Valid
+		u.fun2();// Valid
+        u.fun();// Invalid 
+    }
+ }
+
+ package org;
+ class Fun{
+    public void test(){
+		Test t=new Test();  // Valid 
+         t.fun(); // Invalid
+         t.fun1(); // Valid
+    }
+ }
+
+4. Private 😡
+--------------
+-> private data is available only with in the same class. 
+-> Its not available to other classes with in the same package,
+     and to other classes with in different packages 
+ 	 and  sub classes objects of same package and different
+     Packages
+
+package com;
+  private class Test{
+  private int age;
+   String empName
+
+   void fun(){
+    Test t=new Test(); // Valid
+    age=98;
+    } // default
+   public void fun1(){} // public 
+   protected void fun2();
+    void test(){
+      Use u=new Use(); // Invalid
+      Employee emp=new Employee(); // Valid
+    }
+  }
+
+package com;
+public class Employee{
+   private String empName;
+	void test(){
+     empName="James";
+      Test t=new Test(); // Vallid
+    }
+}
+
+ package org;
+ class Use extends Test{ // Invalid Inheritance 
+    public void test(){
+		Test t=new Test();  // InValid 
+         Use u=new Use(); // InValid
+       
+	     t.fun(); // Invalid
+         t.fun1();// Invalid 
+         t.fun2(); // Invalid
+ 
+        u.fun1(); // InValid
+		u.fun2();// InValid
+        u.fun();// Invalid 
+    }
+ }
+
+ package org;
+ class Fun{
+    public void test(){
+		Test t=new Test();  // InValid 
+         t.fun(); // Invalid
+         t.fun1(); // InValid
+
+        Employee emp=new Employee(); // Valid
+        emp.empName="James"; // Invalid
+     
+        
+    }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
