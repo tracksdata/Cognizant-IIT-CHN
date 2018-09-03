@@ -1,0 +1,19 @@
+Encapsulated  class
+-------------------------
+-> POJO (Plain Old Java Object)
+-> Bean / Model / Entity
+
+Rules
+------
+1. Class should be public
+2. All properties should be defined as 'private' 😡
+3. Every method  should be defined as 'public'
+4. Every method should be defined as public with getters and 
+     Setters
+5. Getter methods do not have arguments. But they do have
+     Return type
+6. Setter methods do not have return type. but they do have 
+     Arguments. So return type always should be 'void'
+7. No business logics should not be defined in POJO classes
+
+

@@ -139,7 +139,7 @@ class Employee{
  package org;
  class Fun{
     public void test(){
-		Test t=new Test();  // Valid 
+		Test t=new Test();  // Invalid 
          t.fun(); // Invalid
          t.fun1(); // Valid
     }
@@ -175,7 +175,7 @@ public class Employee{
    private String empName;
 	void test(){
      empName="James";
-      Test t=new Test(); // Vallid
+      Test t=new Test(); // Invallid
     }
 }
 
