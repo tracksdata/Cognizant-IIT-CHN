@@ -1,0 +1,76 @@
+Inheritance   😁
+-------------
+-> Inheriting features from super class/base class/parent class
+     Is called inheritance.
+-> Creating relationships between classes
+Relationships two types
+	1. Has 'A' -> Object relationships 
+	2. Is 'A' -> Inheritance 
+
+Is 'A'
+---------
+class A{
+	feature 1
+	feature 2
+   
+}
+class T{}
+class B extends A{
+  	class A features and 
+	feature 3
+	feature 4
+}
+
+Notes
+--------
+	-> Only sub class can access features of super class. Vice
+		 versa is not passible
+
+Advantages 
+-------------
+	1. Re-usability
+	2. Class relationships
+	3. Better data abstraction
+	4. Implementing polymorphism 
+
+Has 'A' relationship 
+--------------------
+If a class contains instance of an another class -> has 'A'
+
+Notes
+--------
+1. Creating an object to the class
+		A a=new A(); creating an object
+2. Instanciating  to the class
+		A a=MakeObject.getObject(); 
+		A a1=MakeObject.getObject();
+
+class MakeObject{
+	public static A getObjet(){
+// ----
+	return new A();
+    }
+}
+
+Types of Inheritance 
+	Two Types
+	1. Single 
+	2. Multiple
+	
+Java Supports only Single Inheritance type.
+Multiple Inheritance is not allowed in Java
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
