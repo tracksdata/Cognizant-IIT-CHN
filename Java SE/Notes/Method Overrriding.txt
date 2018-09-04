@@ -1,0 +1,20 @@
+Method Overriding 😏
+---------------------
+-> Defining the same method signature of a 		super class in the Sub class in called 		method overriding
+
+Advantages 
+--------------
+-> All sub classes can provide different implementations to the same method which 
+Is there in the super class
+-> Can apply polymorphism 
+
+Rules
+----------
+1. A sub class can over ride super class method if super class methods are non static , non-final and non-private
+2. Method over loading is not possible if the
+     Super class type is final
+
+
+
+
+

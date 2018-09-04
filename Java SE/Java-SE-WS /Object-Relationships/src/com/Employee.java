@@ -7,6 +7,7 @@ public class Employee {
 
 	private Department dept; // has 'A' 
 	private Project proj; // has 'A'
+	
 
 	public Project getProj() {
 		return proj;
