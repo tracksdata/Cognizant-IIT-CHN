@@ -26,7 +26,7 @@ class Square extends Shape {
 
 public class Test {
 	public static void main(String[] args) {
-
+		//Hi
 		Square s = new Square();
 		s.draw();
 		

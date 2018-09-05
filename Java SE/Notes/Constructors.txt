@@ -1,0 +1,27 @@
+Constructor
+---------------
+-> its a special member block in a class
+-> Invokes by JVM when the object is created.
+-> Name of the class and constructor name must be same
+-> constructors do not have return types. Even void not allowed
+-> Constructors may have arguments
+
+
+Notes
+-------
+1. JVM provides a default  constructor if you 
+    Are not providing any parametarized   constructor
+2. When yo provide a argument constructor, then JVM will not add a default constructor automatically. 
+3. When you provide a argument constructor,
+     Then proving a default constructor is mandatory operation if you are trying to invoke default constructor.
+
+
+JDK 5.0
+---------
+Var args
+----------
+
+
+
+
+
