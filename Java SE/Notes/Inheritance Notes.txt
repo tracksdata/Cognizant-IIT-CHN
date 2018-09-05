@@ -1,0 +1,8 @@
+Inheritance Notes
+----------------------
+1. Java.lang.Object class is the superclass to all the classes in Java
+2. A super class object/reference can store all its sub classes/ implementation class objects.
+3. Super class reference can able to access every method and properties in the super class.
+4. Super class reference cannot be used to access the individual methods of its sub classes (a method which is not available in super class and only available in sub class)
+
+ 
