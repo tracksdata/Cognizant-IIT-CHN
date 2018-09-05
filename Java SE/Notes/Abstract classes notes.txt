@@ -10,4 +10,21 @@ Abstract class
 -> Every sub class of an abstract class must override every abstract method in the abstract class.
 -> Any any one of abstract method is not overridden in the sub class then that sub class must be defined as 'abstract'
 -> A class can be either abstract or final. It cannot be both.
+
+Issues
+------------
+1. Abstract classes cannot achievement 100% abstraction. We can implement only partial abstraction 
+2. Code is tightly coupled with abstract classes. 
+3. Application cannot be extended. 
+4. Multiple inheritance is not possible 
+
+
+
+
+
+
+
+
+
+
  

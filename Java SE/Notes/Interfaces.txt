@@ -1,0 +1,48 @@
+Interfaces
+---------------
+-> An interface is a method specification which contains zero or
+    More abstract methods only
+-> every method of the interface by default is  public and abstract
+-> every property in the interface by default public static final 
+-> We can define a sub interface with in the interface 
+-> we can define a class in a interface 
+-> An interface which contains no or zero abstract methods is 
+     Known as 'marker' or 'tagged' interface
+
+
+Advantages
+-------------
+	-> extensibility 
+	-> loosely coupled 
+	-> 100% abstraction	
+	-> Multiple Inheritance 
+
+
+Notes
+-------
+1. Interface is not a class. 
+2. An interface can extends more than one interface
+3. A class can implements more than one interface
+4. Class can only implement interface
+5. Class cannot extends interface
+6. Interface only extends another interface
+7. Interface can not implements another interface
+8. Class cannot implements another class
+9. Class can only extends to another class
+10. Class can extends only one class at a time
+11. Class can implements many interfaces as well cab extends one   class at same time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
