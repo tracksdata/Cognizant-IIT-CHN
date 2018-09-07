@@ -32,6 +32,16 @@ Notes
 10. Class can extends only one class at a time
 11. Class can implements many interfaces as well cab extends one   class at same time
 
+DROP TABLE IF EXISTS PRODUCT;
+CREATE TABLE PRODUCT(ID VARCHAR(30) PRIMARY KEY, NAME VARCHAR(50),PRICE FLOAT,DESCRIPTION VARCHAR2(50));
+INSERT INTO PRODUCT VALUES('P001', 'Laptop',86000,'Sony laptop');
+INSERT INTO PRODUCT VALUES('P002', 'Mac Book Pro',229100,'15 inch i7 processor');
+SELECT * FROM PRODUCT ORDER BY ID;
+
+
+script to 'schema.sql'
+script to 'schema.sql'
+
 
 
 
