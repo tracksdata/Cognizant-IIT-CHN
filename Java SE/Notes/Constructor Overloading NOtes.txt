@@ -1,0 +1,26 @@
+Constructor Overloading
+------------------------------
+1.  If you are trying too create an object to the sub class with out any parameters, then proving default constructor in the super and
+Sub classes are mandatory. JVM adds them for you automatically.
+
+2. When you provide parameterized constructor in the super class, 
+    And not proving any default constructor, then you cannot create
+   An object to the sub class (with out parameter). In this case, 
+i. Provide default constructor	in the super class
+ii. Remove parametarized constructor constructor in the super class
+iii. Invoke, parameterized constructor from the default constructor o the sub class by using super keyword
+
+
+3. When ever you are trying to invoke super class parametarized constructor  then providing default constructor in the super is not mandatary operation. 
+
+4. Invoking the parameterized constructor of a sub class must be followed by a default constructor in the super class or removing parametarized constructor in the super class
+
+
+
+
+
+
+
+
+
+
