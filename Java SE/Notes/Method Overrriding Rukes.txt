@@ -1,0 +1,11 @@
+Overriding method access visibility 
+--------------------------------------
+
+1. If Super class method is public, then sub class must override 
+    With public access modifier only
+2. If super class method is default, then sub class overridden method can be default, public and protected
+
+3. If the super class method is protected, then sub class overridden method can be only protected and public 
+
+4. If the super class method is private. Private methods are not visible to any other classes including sub classes
+
