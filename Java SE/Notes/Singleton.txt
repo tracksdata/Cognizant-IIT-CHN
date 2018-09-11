@@ -1,0 +1,9 @@
+Singleton Design pattern
+------------------------------
+A should be instantiated only once in the life cycle.
+
+Rules
+-------
+1. Provide default private constructor 
+2. Provide static public get method to get the object when ever
+    Needed

@@ -1,0 +1,10 @@
+Garbage Collection (GC)
+--------------------------
+-> GC is a special algorithm which cleans up unused objects from
+     The heap space
+-> Mark and Sweep
+-> System.gc() methods invokes garbage collection for sure.
+-> before the object garbage collected, garbage collector invokes
+     finalize() method. 
+
+
