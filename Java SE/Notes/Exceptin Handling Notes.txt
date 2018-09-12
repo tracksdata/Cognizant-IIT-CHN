@@ -1,0 +1,45 @@
+Exception handling 
+------------------------
+
+-> Two types of termination of java programs
+	1. Normal termination
+	2. Ab normal termination 
+-> Exceptions makes sure that all the statements in the main is 
+    Executed even if the programs terminates ab normally
+
+Uses
+------
+1. Robust
+2. All the statements are guaranteed even there is an exception
+3. Strong type checking
+
+
+Two Types
+--------------
+1. Checked exceptions (Compile time exceptions)
+2. Un Checked Exceptions (Run time exceptions)
+
+
+Checked and unchecked again classified into two types
+	1. Built in exceptions
+	2. User defined exceptions
+
+
+Exception handling techniques 
+--------------------------------------
+
+1. Try
+2. Catch
+3. Finally
+4. Throw clause
+5. Throws clause
+
+
+
+
+
+
+
+
+
+
