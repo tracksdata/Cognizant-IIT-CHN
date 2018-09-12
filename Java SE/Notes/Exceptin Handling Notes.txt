@@ -35,6 +35,15 @@ Exception handling techniques
 5. Throws clause
 
 
+Throws 
+-------
+-> It is used to throws the exception with out handling it ( no need of 
+    Using try and catch to handle the exception )
+
+Throw
+--------
+
+
 
 
 
