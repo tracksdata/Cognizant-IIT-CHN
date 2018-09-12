@@ -5,6 +5,7 @@ class Emp {
 
 	@Override
 	protected void finalize() throws Throwable {
+		
 		System.out.println("-- Bank Object is Garbage Collected " + (count++) + " times with " + this.hashCode());
 	}
 

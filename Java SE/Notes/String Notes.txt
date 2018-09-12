@@ -1,0 +1,15 @@
+String
+-------------
+-> String class is used to to String related manipulations. 
+-> String is a final class
+-> String is a immutable class
+
+Types of Objects
+-------------------
+	1. Mutable - StringBuffer, StringBuilder, and all our complex 	    classes like Employee, Bank
+	2. Immutable - String , and all wraper classes
+
+   
+
+
+

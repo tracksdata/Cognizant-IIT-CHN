@@ -1,0 +1,25 @@
+Wraper classes
+--------------------
+
+-> Wraping up primitives into objects and vice versa. 
+int x=10; -> Integer x=new Integer(10);
+
+
+	primitive type			Wraper class 
+----------------------------------------
+		int						Integer
+		short					Short
+		byte						Byte
+		long						Long
+		float						Float
+		double					Double
+		char						Character
+		boolean				Boolean
+------------------------------------------
+
+
+
+
+
+
+
