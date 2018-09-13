@@ -1,0 +1,60 @@
+Threads 😩
+-------------
+-> Thread is a process in java. A Single program can divide into multiple parts. Each part or all parts are handle by java threads at t time.
+
+-> Time slicing
+-> Round Robin Fashion
+-> Context Switch
+
+Types
+--------
+1. Single
+2. Multi
+
+Advantages
+---------------
+-> Improve execution speed of an application
+-> Gaming
+
+How many ways thread can be created
+Two Ways
+	1. By extending java.lang.Thread
+	2. By implementing java.lang.Runnable
+
+class Abc extends Thread{
+public void run(){}
+main(){
+Abc a=new Abc();
+}
+}
+class Abc implements extends Xyz Runnable{
+public void run(){}
+
+main(){
+ Thread t=new Thread();
+
+}
+
+}
+
+
+
+------------------
+
+wait()
+notify()
+notifyAll()
+
+-----------------
+Dead Locks
+-------------
+
+
+
+
+
+
+
+
+
+
