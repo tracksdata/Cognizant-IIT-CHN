@@ -1,0 +1,52 @@
+Collection API
+--------------------
+Java.util
+
+Collection (I)
+	-> List (I)
+	-> Set  (I)
+-> Map
+
+	List
+	-----
+	-> ArrayList
+	-> Vector
+		-> Stack
+	-> LinkedList (DLL)
+	
+	Set
+	-----
+	-> HashSet
+	-> LinkedHashSet
+	-> SortedSet (I)
+			-> TreeSet
+
+
+	Map
+ -------
+	-> HashMap
+	-> LinkedHashMap
+	-> Hashtable
+	-> SortedMap (I)
+			-> TreeMap
+
+
+Data Structures
+----------------
+	-> Linear Data Structor (Duplicates and indexed)
+			-> List
+	-> Non Linear Data Structor (No Duplicates and non indexed)
+			> Set
+			> Map
+
+	
+
+
+
+
+
+
+
+
+
+
