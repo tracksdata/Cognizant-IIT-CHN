@@ -11,6 +11,18 @@ public class Employee {
 	private double salary;
 	private Calendar dob;
 
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return empId;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee emp = (Employee) obj;
+		return (emp.getEmpId() == empId) && empName.equals(emp.getEmpName());
+	}
+
 	List<Address> addrs = new ArrayList<>();
 
 	public List<Address> getAddrs() {

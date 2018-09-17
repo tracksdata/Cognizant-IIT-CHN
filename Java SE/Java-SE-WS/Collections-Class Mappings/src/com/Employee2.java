@@ -1,27 +1,28 @@
 package com;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class Employee {
+public class Employee2 {
 	private int empId;
 	private String empName;
 	private double salary;
 	private Calendar dob;
 
-	List<Address> addrs = new ArrayList<>();
-
-	public List<Address> getAddrs() {
-		return addrs;
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return empId;
 	}
 
-	public void setAddrs(List<Address> addrs) {
-		this.addrs = addrs;
+	@Override
+	public boolean equals(Object obj) {
+		Employee2 emp = (Employee2) obj;
+		return emp.getEmpId() == empId;
 	}
 
-	public Employee(int empId, String empName, double salary, Calendar dob) {
+	public Employee2(int empId, String empName, double salary, Calendar dob) {
 
 		this.empId = empId;
 		this.empName = empName;
@@ -67,11 +68,11 @@ public class Employee {
 		this.dob = dob;
 	}
 
-	public static void disolay_V1(List<Employee> emps) {
+	public static void disolay_V1(List<Employee2> emps) {
 		SimpleDateFormat sdm = new SimpleDateFormat("dd/MMM/yyyy");
 		System.out.println("Emp Id\tName\tSalary\t\tDate of Birth");
 		System.out.println("----------------------------------------------");
-		for (Employee emp : emps) {
+		for (Employee2 emp : emps) {
 			System.out.print(emp.getEmpId() + " \t");
 			System.out.print(emp.getEmpName() + " \t");
 			System.out.print(emp.getSalary() + " \t");
@@ -82,22 +83,13 @@ public class Employee {
 		System.out.println("----------------------------------------------");
 	}
 
-	public static void display(Employee emp) {
+	public static void display(Employee2 emp) {
 		SimpleDateFormat sdm = new SimpleDateFormat("dd/MMM/yyyy");
 		System.out.println("Emp Id: " + emp.getEmpId());
 		System.out.println("Name: " + emp.getEmpName());
 		System.out.println("Salary: " + emp.getSalary());
 		System.out.println("DOB: " + sdm.format(emp.getDob().getTime()));
-
 		System.out.println("-----------------------------");
-
-		for (Address addr : emp.getAddrs()) {
-			System.out.println("Addr Id: " + addr.getAddrId());
-			System.out.println("Addr Type: " + addr.getAddrType());
-			System.out.println("Address: " + addr.getAddress());
-			System.out.println("---------------------------------");
-		}
-
 	}
 
 }

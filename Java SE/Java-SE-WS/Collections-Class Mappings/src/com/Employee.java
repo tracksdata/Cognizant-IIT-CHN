@@ -1,7 +1,6 @@
 package com;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -10,16 +9,6 @@ public class Employee {
 	private String empName;
 	private double salary;
 	private Calendar dob;
-
-	List<Address> addrs = new ArrayList<>();
-
-	public List<Address> getAddrs() {
-		return addrs;
-	}
-
-	public void setAddrs(List<Address> addrs) {
-		this.addrs = addrs;
-	}
 
 	public Employee(int empId, String empName, double salary, Calendar dob) {
 
@@ -88,16 +77,7 @@ public class Employee {
 		System.out.println("Name: " + emp.getEmpName());
 		System.out.println("Salary: " + emp.getSalary());
 		System.out.println("DOB: " + sdm.format(emp.getDob().getTime()));
-
 		System.out.println("-----------------------------");
-
-		for (Address addr : emp.getAddrs()) {
-			System.out.println("Addr Id: " + addr.getAddrId());
-			System.out.println("Addr Type: " + addr.getAddrType());
-			System.out.println("Address: " + addr.getAddress());
-			System.out.println("---------------------------------");
-		}
-
 	}
 
 }
