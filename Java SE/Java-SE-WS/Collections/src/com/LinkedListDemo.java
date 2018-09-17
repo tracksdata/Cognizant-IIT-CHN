@@ -1,12 +1,14 @@
 package com;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Vector;
 
-public class ListDemo {
+public class LinkedListDemo {
 
 	public static void main(String[] args) {
 
-		ArrayList<Object> arr = new ArrayList<>();
+		LinkedList<Object> arr = new LinkedList<>();
 
 		System.out.println(arr.isEmpty());
 		arr.add(1999);
@@ -21,8 +23,8 @@ public class ListDemo {
 		int[] a = { 10, 20, 30, 40, 50 };
 
 		arr.add(a);
-		
-		//ArrayList<Object> arr1=new ArrayList<>(a);
+
+		// ArrayList<Object> arr1=new ArrayList<>(a);
 
 		System.out.println(arr);
 
@@ -32,11 +34,8 @@ public class ListDemo {
 
 		System.out.println(arr.isEmpty());
 
-		
-		Object[] objects=arr.toArray();
-		
-		
-		
+		Object[] objects = arr.toArray();
+
 	}
 
 }
