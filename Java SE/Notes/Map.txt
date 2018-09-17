@@ -1,0 +1,25 @@
+Array List
+-------------
+-> index DS class
+-> Duplicates accepted
+-> Insertion order is same
+-> Initial size is 10 objects. When objects exceeds  its size, then it dynamically grows by having the total size.
+Ex: if you are adding 11th element, then total
+      Size of AL is 15. 
+
+
+Set <Object> emps=new HashSet<>();
+emps.add("Abc");   -> Map.put("Abc",dummy obj);
+emps.add("Xyz"); -> Map.put("Xyz",dummy obj);
+emps.add("Abc"); -> Map.put("Abc",dummy obj);
+
+
+
+
+
+
+
+
+
+
+

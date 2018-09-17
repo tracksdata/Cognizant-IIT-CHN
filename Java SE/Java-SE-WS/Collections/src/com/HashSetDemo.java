@@ -8,7 +8,7 @@ public class HashSetDemo {
 
 	public static void main(String[] args) {
 
-		Set<String> cities = new HashSet<>();
+		HashSet<String> cities = new HashSet<>();
 
 		cities.add("Hyderabad");
 		cities.add("Chennai");
@@ -25,9 +25,9 @@ public class HashSetDemo {
 			String cityName = it.next();
 			if (cityName.equals("Pune")) {
 				// it.remove();
-				cities.add("New Pune");
+			//	cities.add("New Pune");
 			}
-			System.out.println(cityName);
+			//System.out.println(cityName);
 		}
 
 		System.out.println("-----------------");
