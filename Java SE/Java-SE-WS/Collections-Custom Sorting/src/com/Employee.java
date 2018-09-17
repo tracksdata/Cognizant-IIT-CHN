@@ -2,14 +2,30 @@ package com;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
 
-public class Employee {
+public class Employee implements Comparable<Employee>, Comparator<Employee> {
 	private int empId;
 	private String empName;
 	private double salary;
 	private Calendar dob;
 
+	@Override
+	public int compareTo(Employee emp) {
+
+		return empId - emp.getEmpId();
+	}
+
+	@Override
+	public int compare(Employee emp1, Employee emp2) {
+		// TODO Auto-generated method stub
+		return emp1.getEmpName().compareTo(emp2.getEmpName());
+	}
+
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
 	public Employee(int empId, String empName, double salary, Calendar dob) {
 
 		this.empId = empId;

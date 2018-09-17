@@ -13,6 +13,14 @@ emps.add("Abc");   -> Map.put("Abc",dummy obj);
 emps.add("Xyz"); -> Map.put("Xyz",dummy obj);
 emps.add("Abc"); -> Map.put("Abc",dummy obj);
 
+Collections.sort("needs collection objects which implements  either java.lang.Comparable or java.util.Comparator) to sort as per the given order.
+
+Java.lang.Comparable interface
+----------------------------
+public int compareTo(Object obj){
+
+return int_value
+}
 
 
 
