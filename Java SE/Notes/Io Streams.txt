@@ -1,0 +1,72 @@
+Persistence with java
+-------------------------
+-> with files (java.io  API)
+-> with database (JDBD API)
+
+Operations
+	->  CRUD
+	C- Creat
+	R - retrieve
+	U - Update
+	D - Delete
+
+ JAVA.IO
+-------------
+File Operations
+	
+	mainly into two types
+	1. Binary/Byte Type
+	2. Character Type
+
+1. Byte Type 
+----------------
+	-> with ACSCII and once and zeros 
+	Main top level abstract classes
+	1. InputStream.  (Read / update existing files)
+	2. OutputStream. (Create or write data to a file)
+
+2. Character Type. (16 bit character system)
+-----------------
+	-> With Character systems 
+	Main top level abstract classes
+	1. Reader (Read / update existing files)
+	2. Writer (Create or write data to a file)
+
+
+ Serialising Objects
+---------------------
+
+--> Storing the state of the objects in to the streams called
+       Serialisation.
+
+De-Serialisation 
+-----------------
+-> Reading the object state from the stream in to java class.
+
+Why we should serialise?
+----------------------------
+-> Every object has state and behaviour.
+-> Behaviours handled by methods with in the class
+-> state is handled by properties of a class.
+-> For synchronising state of a objects from stream into classes
+    And vice versa, we need serialisation.
+
+-> The protocols like https and http in the web technologies does not support the objects which are not serialised. 
+
+
+-> to serialise java objects, class must implements one of marker 
+   Or tagged interface called 'serialisable' interface 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
