@@ -42,9 +42,7 @@ public class HR {
 		h.addEmployee(e5);
 
 		System.out.println("Total Elements added: " + h.emps.size());
-		System.out.println("-- DOne ");
-
-		// Employee.disolay_V1();
+	
 
 	}
 

@@ -23,15 +23,6 @@ public class Employee {
 		return (emp.getEmpId() == empId) && empName.equals(emp.getEmpName());
 	}
 
-	List<Address> addrs = new ArrayList<>();
-
-	public List<Address> getAddrs() {
-		return addrs;
-	}
-
-	public void setAddrs(List<Address> addrs) {
-		this.addrs = addrs;
-	}
 
 	public Employee(int empId, String empName, double salary, Calendar dob) {
 
@@ -94,22 +85,5 @@ public class Employee {
 		System.out.println("----------------------------------------------");
 	}
 
-	public static void display(Employee emp) {
-		SimpleDateFormat sdm = new SimpleDateFormat("dd/MMM/yyyy");
-		System.out.println("Emp Id: " + emp.getEmpId());
-		System.out.println("Name: " + emp.getEmpName());
-		System.out.println("Salary: " + emp.getSalary());
-		System.out.println("DOB: " + sdm.format(emp.getDob().getTime()));
-
-		System.out.println("-----------------------------");
-
-		for (Address addr : emp.getAddrs()) {
-			System.out.println("Addr Id: " + addr.getAddrId());
-			System.out.println("Addr Type: " + addr.getAddrType());
-			System.out.println("Address: " + addr.getAddress());
-			System.out.println("---------------------------------");
-		}
-
-	}
-
+	
 }

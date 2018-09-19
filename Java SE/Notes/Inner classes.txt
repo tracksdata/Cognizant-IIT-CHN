@@ -1,0 +1,43 @@
+Inner classes
+------------------
+-> to hide some sensitive  properties / methods to other classes.
+
+Types
+--------
+1. Non static inner classes
+2. Static inner classes
+3. Private inner classes
+
+1. non static inner classes
+-----------------------------
+-> Object of this class can be created in any other class using 
+     Outer class object.
+-> if the inner class is default, then only the classes from same
+     Package can create object to inner class using our class obj
+-> if the inner class is protected, then only the classes from same
+     Package and sub classes of outer class in other packages can   create object to inner class using our class obj
+-> Inner class can access every data of outer class. But outer class
+     Cannot access inner class data with out creating inner class
+    Object.
+
+2. Static inner classes
+--------------------------
+-> Object of this class can be created in any other classes with 
+     Help of outer class name. Outer class object is not needed
+     To create object of static inner class
+-> static inner class cannot access non static data of outer class.
+-> static inner class can access outer class static data directly
+
+3. Private inner classes
+----------------------------
+-> private inner class object cannot be created in any other class.
+-> only outer class can create private inner class object.
+-> private inner class can access data of outer class.
+-> outer class cannot access data of inner class with out help of
+     Inner class object.
+
+
+
+
+
+
