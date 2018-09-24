@@ -1,2 +1,48 @@
-Enum
-----------
+Vendor: venodr: apex systems
+Last Four SSN Digits:7833
+
+FULL Name: Deekshith Donapati
+
+Email ID:deekshith.dev2@gmail.com
+
+Cell Phone Number: 469-403-0389
+
+Skype id: deekshith.dev2@gmail.com
+
+DOB Month and Year: 08/31/92
+
+Present Location: fremont city ,claifornia state.  1:pm pst
+Client: capital one
+
+Education Details:
+Bachelor’s from Kakatiya Unviersity,2012, India.
+Master’s from Northwestern Polytechnic University,2016,USA.
+
+
+Client: Fresenius Medical care                                                                                             
+Lexington, MA
+Java Developer
+Jun 2017 to Till Date
+---------------------------------
+Client: Nielson                                                                                                                           
+Oldsmar, FL
+      Java Developer
+
+  Aug 2016-May 2017
+
+----------------------------------
+Client: Cyient, Hyderabad                                                                                                                                                                                                              
+     Java Developer
+May 2014-July 2015    
+----------------------------------
+
+Client: Honey well, Bangalore                                                                                                          
+Java Developer
+Jun 2012-Apr 2014
+-----------------------------
+
+
+
+
+
+

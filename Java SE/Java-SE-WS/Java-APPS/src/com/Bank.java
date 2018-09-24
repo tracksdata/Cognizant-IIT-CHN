@@ -7,7 +7,7 @@ public class Bank {
 
 	// Inner classes
 
-	class InnerOperations { // default / public
+	public class InnerOperations { // default / public
 		public void processSalary() {
 			System.out.println("Bank Employee Salaries");
 		}
