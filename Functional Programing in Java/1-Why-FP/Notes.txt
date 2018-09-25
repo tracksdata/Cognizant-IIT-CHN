@@ -1,0 +1,101 @@
+
+
+
+
+
+OO
+
+  ----------------------------------------------------------	
+
+  what is object ?
+  
+  	- data,info,prop,attr        : State
+  	- work,func,method,oprn      : Behav
+  	- loca,addr,pointer,reference: Identity
+  	
+  	
+  	obj  ==> sbi
+  	
+  	
+  	class
+  		- state
+  		- behav
+  		
+  		==> instances/objects
+  		
+   ----------------------------------------------------------	
+ 
+   OO concepts
+   ------------
+   1. Interface / Abstraction
+   		why we need ?
+   		==> easy to use/lean by dependent
+   		==> for loose-coupling b/w dependent & dependency
+   2. Implementation / Encapsulation
+   		==> hide complexity		
+   3. Inheritance
+   4. polymorphism
+   
+   ----------------------------------------------------------
+   
+   e.g bank
+   
+   	   		use-case : txr(from,to,amount)
+   	   		
+   	   		
+			layer(s):
+			
+			a. repository-layer
+			
+				- JdbcAccountRepository
+			
+			b. business/service layer
+				
+				- TxrService
+			   	   
+   	   
+   ----------------------------------------------------------
+   
+   OO principles
+   
+   
+ *    S => Single responsibility principle
+ *    O => Open closed principle
+ *    L => Liskov substitution principle
+ *    I => Interface segregation principle
+ *    D => Dependency Inversion principle
+ 
+ ----------------------------------------------------------
+ 
+   OO patterns
+   
+   1. creational 
+   2. structural
+   3. behavioral
+   
+   ----------------------------------------------------------
+   
+   
+   
+   
+   
+   Functional programming
+   
+   
+   why we need ?
+   
+   
+   
+    ==> we are able to write concise & expressive code
+    
+    ...
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   	

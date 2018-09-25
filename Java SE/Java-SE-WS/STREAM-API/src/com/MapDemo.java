@@ -12,6 +12,7 @@ public class MapDemo {
 		
 		List<Integer> squareNums=numbers
 		.stream()
+		.filter(i-> i>=10)
 		.map(i-> i*i)
 		.distinct()
 		.collect(Collectors.toList());

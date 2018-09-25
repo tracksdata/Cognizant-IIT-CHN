@@ -1,0 +1,34 @@
+
+
+
+java programming style
+--------------------------
+
+   "component & container" style
+   
+   
+   
+   component ==> appln's business logic
+   container ==> infra logic 
+   
+   
+   
+   -> xml
+   -> annotation
+   
+   
+   
+   
+   --------------------------------------------------------------
+   Java SE
+   
+    1. application            ==> client-JRE
+    2. Applet                 ==> browser-with -JRE
+    
+    
+   Java EE
+   
+   a. servlet & JSP           ==> web-container  ( e.g Tomcat , jetty ... )
+   b. EJB                     ==> ejb-container  ( e.g tomee , glassfish  )
+   
+   -------------------------------------------------------------- 

@@ -1,0 +1,728 @@
+
+
+=================================================================================================
+Functional Programming
+=================================================================================================
+
+-------------------------------------------------------------------------------------  
+ 1.1 What Is Functional Programming?
+-------------------------------------------------------------------------------------     		  		 
+ 		 
+What is functional programming and what are its origins?
+What are its main principles?
+	
+	- The origins of functional programming trace back to lambda-calculus
+	- The whole program is a mathematical function
+	- Functions are stateless and use no variables 		
+	
+-------------------------------------------------------------------------------------
+
+ Lambda-Calculus
+ 
+ 	- Alonzo CHurch, 1935
+ 	- The first 'programming language'
+ 	
+
+-------------------------------------------------------------------------------------
+ 	
+ Lambda-Calculus principles
+ 
+ 	- A language of functions
+ 	- In mathematical sense
+ 		 => Same Input ==> Same Output
+ 		 => That is, stateless
+ 		 => a.k.a purity, absence of side-effects, referential transparency
+     - No variables, no assignments, no loops
+
+-------------------------------------------------------------------------------------
+
+Functional Languages
+
+	1. List
+		- LISt Processor
+		- 1958, second programming language after Fortran Scheme Clojure(2007,runs on JVM)
+	
+	2. Haskel
+	
+	3. ML
+		- MetaLanguage
+		- 1973 - F#( Microsoft .NET, Multi paradigm )
+
+    
+-------------------------------------------------------------------------------------
+
+    "Language Shapes Thought"
+
+    "True in Computer Science as well as in Psychology"
+
+-------------------------------------------------------------------------------------
+
+Functional Languages
+
+        - First class functions : Functions can be passed to or returned from functions
+        - Function composition  : Chains of functions calling each other
+        - Immutable data        : Prevents inadvertently introduced side effects
+        - Pure functions        : No side effects; same output for same input
+        - Ease of parallelism   : Pure functions acting on immutable data
+
+-------------------------------------------------------------------------------------
+
+First Class Functions 
+
+        - A function can be stored in a variable or value
+        - A parameter of a function can be a function
+        - The return value of a function can be a function
+        
+        
+        
+
+A higher order function
+
+        - A function whose return value is a function
+        - A function with a parameter that is a function
+
+-------------------------------------------------------------------------------------
+
+why FP?
+
+Parallelism
+
+	- Composition instead of communication  - f(g(a),h(b),g(c))
+	- Stateless function g and h can be evaluated in any order
+	- Even parallel
+	- Communication only thru return value
+	- No race Condition, No need to synchronize, and so on 
+	
+-------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------
+1.2- Interfaces get a Boost ( java 8)
+-------------------------------------------------------------------------------------
+
+What are the new capabilities of Java interfaces? What are default methods? How can we take advantage of these capabilities?
+	
+	-Interfaces can have default and static methods
+	-Interfaces can carry behaviour but not state
+	-The Comparator interface features default and static methods	 
+	
+-------------------------------------------------------------------------------------
+
+	- static methods
+	- default methods
+	- The comparator example
+
+	=> static methods
+
+	- Interface have always had public static final fields
+	- in Java 9, they can have public static methods	
+	
+	=> default methods
+	
+	- A concrete instance method which can be overridden
+	- Basically, a regular instance method
+	- Interface used to provide signatures
+	- They now provide behavior
+
+
+    demo - Scalable.java
+    demo - Interfaces.java
+    
+-------------------------------------------------------------------------------------
+
+Interfaces vs. Abstract casses
+
+	- Interfaces are still stateless ( no instance fields )
+	- Interface provide behavior, not state
+	- Abstract class provide behavior and state
+
+
+-------------------------------------------------------------------------------------
+1.3 - Some Interfaces are More Functional Than Others
+-------------------------------------------------------------------------------------
+
+What is a functional interface? What are some functional interfaces in the Java API? How can we declare that an interface is functional?
+	
+	- Functional interfaces have a single abstract method
+	- The API contains over 40 functional interfaces
+	- The @FunctionalInterface annotation identifies pure functional interfaces
+
+
+-------------------------------------------------------------------------------------
+
+Functional Interface ( FI )
+
+
+	- Any interface with a single abstract method
+	- static & default methods allowed
+	- Examples	
+		=> Scalable
+		=> Runnable,Comparable,Comparator, Iterable
+		
+-------------------------------------------------------------------------------------
+		
+Pure Functional Interfaces
+
+	- An FI intended to be implemented by stateless classes
+	- Example
+		=> Scalable: not pure
+		=> Runnable: not pure
+		=> Comparable : not pure
+		=> Comparator: pure
+		
+	- Pure FIs respect the Functional Programming paradigm
+	- They play an important role in conjunction with streams
+	
+-------------------------------------------------------------------------------------
+
+@FunctionalInterface Annotation
+
+	- Intended for pure FIs
+	- Compiler checks the "single abstract method" property
+	- Comparator is annotated with it
+	- Comparable is not annotated with it
+	
+
+-------------------------------------------------------------------------------------
+
+FIs in the java 9 API
+
+	- More than 40 pure FIs
+	- Package java.util.function
+		
+	E.g
+			
+		function accepting an object
+			
+			public interface Consumer<T>{
+				void accept(T t);
+			}	
+			
+		function producing an object
+			
+			public interface Producer<T>{
+				T get();
+			}	
+			
+
+=================================================================================================
+ 2- Lambda Expressions
+=================================================================================================
+
+    why lambdas?
+
+    ==> Enables Functional Programming 
+       ( is the way to wrote Function in java language )
+    ==> Readable & concise code
+    ==> Easier-to-use APIs and libraries
+    ==> Enables support for parallel processing
+
+-------------------------------------------------------------------------------------
+
+    Java =>  Object Oriented Programming /  Functional Programming   ????
+    
+ -------------------------------------------------------------------------------------
+
+    Passing behavior in OOP
+    
+    code in OOP
+    
+        ==> Everything is an object
+        ==> All code blocks are "associated" with classes and objects
+
+-------------------------------------------------------------------------------------
+
+    Function as values
+    ------------------- 		
+
+        Inline values
+
+        String name="foo";
+        double pi=3.14;
+
+        aBockOfCode={
+        //..
+        //..
+        }
+        
+-------------------------------------------------------------------------------------
+
+aBlockOfCode=public void perform(){
+				System.out.println();			
+		     }								
+ 	 
+( convert above code to LE )
+
+ - HelloWorld Example
+
+
+-------------------------------------------------------------------------------------
+2.1 - Writing Your First Lambda Expression
+-------------------------------------------------------------------------------------	
+What is the basic syntax for lambda expressions? How are lambda expressions related to anonymous classes? What parts of a lambda expression can be omitted?
+	
+	- Lambda expressions are characterized by the new “arrow” notation
+	- Some anonymous classes can be replaced by lambda expressions
+	- Parameter types of lambda expressions can often be omitted
+
+-------------------------------------------------------------------------------------
+
+Writing Your First Lambda Expression
+
+
+	Comparator<String> byLength=(String a,String b)->{
+		return Integer.compare(a.length,b.length);
+	}
+	
+
+    demo : Lambda1.java
+
+
+-------------------------------------------------------------------------------------  
+
+lambda Expression syntax:
+
+     parameters  -> body    
+
+    parameters  
+
+        (int a,int b)
+        (a,b)
+        (a)
+        a
+        ()
+        
+
+    body 
+
+        {block}
+        expression
+
+
+
+-------------------------------------------------------------------------------------
+2.2 - Typing Lambda Expressions	
+-------------------------------------------------------------------------------------
+
+What is type inference and how does it apply to lambda expressions? 
+What are the legal contexts for a lambda expression?
+
+	- The compiler fills in missing types using type inference
+	- Type inference can derive parameter types for lambda expressions
+	- Lambda expressions can appear where a functional interface is expected
+
+-------------------------------------------------------------------------------------
+	
+Type Inference
+
+	- infer a type at compile time
+	- The compiler filling in a missing type
+	- Been there since Java 5
+	
+		
+		public static <T> T getFirst<T[] array){
+			return array[0];
+		}	
+		
+		String[] strarray={"A","B"};
+		getFirst(strarray);
+		
+		
+	- code does not specify type parameter for 'getFirst'
+	- Still, no cast is needed in assignment
+	- Type parameter "String" is inferred from actual parameter "strarray" 
+
+-------------------------------------------------------------------------------------
+
+Type Inference and Lambdas
+
+
+	- Identify the FI being implemented
+	- Identify the parameters type ( if omitted )
+	
+	
+	imp-note:
+	
+	- Context must contain enough info to the receiving FI
+	
+		=> RHS of assignment
+		
+			Consumer<String> = lambda
+			
+		=> Actual parameter of a method or constructor
+		
+			new Thread(lambda)
+				
+        => Argument of 'return'
+        
+        		return lambda
+        		
+        	=> Argument of cast
+
+
+   demo : LambdaInference.java     	
+        		
+        		
+        		
+        		
+-------------------------------------------------------------------------------------
+ 2.3 - Capturing Values
+-------------------------------------------------------------------------------------
+What variables can lambda expressions access? Does every usage of a lambda expression give rise to a new object?
+	
+	-Lambda expressions can access variables from the enclosing scopes
+	-Captured local variables must be effectively final
+	-Lambda expressions are instantiated only when necessary
+
+-------------------------------------------------------------------------------------
+
+	- Capturing Fields
+		
+		- Lambda expressions can access
+				=> static fields of enclosing class
+				=> Instance fields of enclosing object
+
+		- How - They store a reference to the enclosing object
+		
+-------------------------------------------------------------------------------------
+
+	- Effectively Final Variables
+	
+		- A variable that is used as if it was final
+		- No reassigned
+		
+			Note: it is good practice to declare them final
+				
+-------------------------------------------------------------------------------------	
+	
+	- Capturing Local Variables
+		
+		- LE can access 	
+		
+		   local variables of the enclosing method provided they are effectively final
+		
+		How?
+		
+			=> They store a copy of their value ( same rule as anonymous class )
+	
+	
+-------------------------------------------------------------------------------------	
+	
+
+ LE v.s Anonymous Class
+ 
+ 	- Lambdas are more succinct ( short )
+ 	- Lambdas do not create additional class files
+ 	- Not every occurrence of a lambdas creates new object
+ 	- On the other hand:
+ 		=> Lambdas only work for FIs
+ 		=> Anonymous classes can have state ( that is, fields )
+ 	
+    demo - lambdaimplementation.java
+    
+    
+    
+-------------------------------------------------------------------------------------	
+2.4- Method References
+-------------------------------------------------------------------------------------	
+
+What are method references? 
+What are method references useful for?
+
+	- A method reference is an expression denoting a method
+	- Method references can be used in place of lambda expressions
+	- Method references bridge existing methods with functional interfaces
+
+-------------------------------------------------------------------------------------	
+
+Method References
+
+	- Function Pointers Come to Java
+    - A MR is an expression denoting a method
+    - Similar to function Pointers in C/C++
+    - More efficient than reflection ( That is Method class )
+    
+	    
+	    
+	    - static method ===> Employee::getMaxSalary
+	    - Instance method, unspecified instance ===> Employee::getSalary
+	    - Instance method, specified instance ===> mike::getSalary
+	    - constructor                         ===> Employee::new
+	    
+	    - Instance method of super super-class    ==> super::foo
+	    - Array constructor     ===>
+	    
+	    		
+	
+	- Method References have No Intrinsic Type
+	
+		=> Type Inference assigns a type based on context
+		=> Hence, a telling receiving context needed
+		
+		=> The Context must identify a FI
+		
+		
+     - Legal Contexts for Method references
+     
+     	=> RHS of assignment
+     	=> Actual parameter of a method or constructor
+     	=> Argument of Return
+     	=> Argument of cast
+     	
+
+   demo - Methodreferences.java   	
+
+
+
+
+=================================================================================================
+ Level 3 - Functional Interfaces
+=================================================================================================
+
+-------------------------------------------------------------------------------------	
+3.1 - Pre-Existing Functional Interfaces
+-------------------------------------------------------------------------------------	
+
+What are the functional interfaces that were already present in Java 7? Can they be used as targets of lambda expressions?
+	
+	- Java 7 has several common functional interfaces
+	- Functional interfaces pertain to threads, GUIs, and object sorting
+	- Comparator is a notable pure functional interface
+
+-------------------------------------------------------------------------------------	
+
+	- Runnable & Callable
+	- ActionListener
+	- Comparable and Comparator
+	
+	Comparable .vs Comparator
+	
+		- comparator is pure FI
+		
+			=> A stateless object comparing two other objects
+			
+		- Comparable is the opposite of apure FI	
+		
+			=> It needs state
+			=> Otherwise, comparison with another object would be meaningless
+     	
+	
+-------------------------------------------------------------------------------------
+3.2 - New Functional Interfaces
+-------------------------------------------------------------------------------------
+What functional interfaces were added to Java 8?
+	
+	- Java 8 features a new package with more than 40 functional interface
+	- New functional interfaces cover all common function types
+	- Special versions of such interfaces are devoted to primitive types
+
+-------------------------------------------------------------------------------------
+
+	A wealth of FIs
+	
+		- A package java.util.function;
+		- Over fourty FIs
+		- All common types of functions, ready to use
+		
+		
+		Functional Interfaces, by Function Type
+		
+		
+		nothing->T            Supplier
+		T->nothing            Consumer
+		T->T                  UnaryOperator
+		T,T->T                BinaryOperator
+		S->T                  Function
+		T->boolean            Predicate  
+
+    demo- FunctionalInterfaces.java
+-------------------------------------------------------------------------------------
+
+	  UnaryOperator FI
+		
+		- Represents an object updater/modifier, which preserve types
+		- Use with the following method of interface List<T>
+			
+			=> void replaceAll(UnaryOperator<T> op);
+	
+	  BinaryOperator FI
+		
+		- Represents an operation between two objects, preserving the type
+		- Use with "reduce" operations in streams
+		
+	  Function FI
+	   
+	   	- Represents an object transformer, from one type to another		
+	   	- Use with Comparator, as key extractor, "map" operations in streams
+	   	
+	   		e.g
+	   		
+	   		Comparator<Employee> byName=
+	   			Comparator.comparing(e->e.getName());
+	   			
+	   Predicate FI
+	   
+	   	- Represents a property that some objects have
+	   	- Use with following method of interface Collection<T>:
+	   	
+	   		boolean removeIf(Predicate<T> p);
+	   		
+	    - Also, 'filter' operations in streams					
+		 
+	
+---------------------------------------------------------------------------------------
+3.3- Functional Interfaces for Primitive Types	
+---------------------------------------------------------------------------------------
+Are there functional interfaces whose arguments and return types are primitive types?
+	
+	- Most functional interfaces have variants for primitive types
+	- Primitive types int, long, and double are supported
+	- Primitive functional interfaces avoid the overhead of wrapper classes
+
+---------------------------------------------------------------------------------------
+
+Functional Interfaces of Primitive Types
+
+	- FI whose arguments and return types are primitive types
+	
+	
+	FI Name       Variants with X=Int,Long,Double         FunctionType
+	
+	
+	Supplier         XSupplier                             noting->X
+	Consumer         XConsumer                             X->nothing
+	UnaryOperator    XUnaryOperator                        X->X
+	BinaryOperator   XBinaryOperator                       X,X->X
+	Predicate        XPredicate                            X->boolean
+
+---------------------------------------------------------------------------------------
+
+Variants of Function
+	
+	One primitive type : ToXFunction<T>          ( type:T ->X )
+	
+		- ToIntFunction<T>, etc.
+	
+	Two primitive types : XToYFunction<T>        ( type:X ->Y )
+	
+		-IntToLongFunction,IntToDoubleFunction, and so on
+	
+	
+	No IntToIntFunctiom, why
+	
+		There's IntUnaryOperator
+		
+---------------------------------------------------------------------------------------
+
+	BooleanSuppiler
+	
+	
+		A supplier of random booleans
+		
+			final Random rand=new Random();
+			BooleanSupplier randomBS=rand::nextBoolean;		
+	
+	     			
+---------------------------------------------------------------------------------------
+3.4 - Composing Functions
+---------------------------------------------------------------------------------------			
+
+Can we implement a functional interface by composing simple objects?
+	
+	- Several functional interfaces support composition via default methods
+	- Function and Consumer support sequential composition
+	- Predicate supports Boolean composition	
+---------------------------------------------------------------------------------------			
+	
+		
+Some FIs provide Composition Methods
+	
+	
+	- create complex functions from simpler
+	- Predicate, Consumer, Function and Comparator		
+		
+---------------------------------------------------------------------------------------		
+
+Composing Predicates
+	
+	
+	The usual 3 boolean connectives: and,or,not
+	
+	Predicate<T> a=...,b=...;
+	Predicate<T> c=a.and(b),
+	             d=a.or(b),
+	             e=a.negate();
+	             
+---------------------------------------------------------------------------------------	  
+
+Composing Consumers:
+
+	- Apply two consumers to the same argument sequential composition
+	
+	- Method addThen
+	
+		Consumer<T> a=...,b=...;
+		Consumer<T> c=a.andThen(b);
+		
+		
+	 - Objective: Writing the same string to screen and to a file
+		
+			PrintWriter writer=new PrintWriter("filename.txt");
+			
+			Consumer<String> logger=writer::println;
+			Consumer<String> screener=System.out::println;
+			
+			Consumer both=screener.andThen(logger);
+			
+			both.accept("Program started");
+			
+---------------------------------------------------------------------------------------	
+
+Composing Functions:
+	
+		
+	 - Apply two functions, sequentially	
+	 - Given two functions f:A->B,g:B->C
+	 
+	 	f.andThen(g)      computes g(f(x)    type A -> C
+	 	g.compose(f)      computes the same thing!
+	 	
+	 	so:
+	 	
+	 	"andThen" , reads left-to-right
+	 	"compose" , reads right-to-left
+		
+		
+		
+	 - Objective : Get the initial letter of an Employee's name
+	 
+
+		  	Function<Employee,String> getName=Employee::getName;
+		  	Function<String,Character> getFirstLetter=name.charAt(0);
+		  	Function initial=getName.andThen(getFirstLetter);
+		  	  	
+		
+---------------------------------------------------------------------------------------
+
+Composing Comparators:
+
+
+	- Apply two comparators , lexicographically
+	- That is:
+	
+		1. Apply first comparator
+		2. if first comparison is inconclusive ( result 0 ), apply second comparator
+	           
+	           
+	- Method 'thenComparing'           
+	
+	- Objective: compare Employees by name , then by salary
+	
+			Comparator<Employee> byName=Comparator.comparing(Employee::getName)
+			Comparator<Employee> bySalary=Comparator.comparing(Employee::getSalary)
+			Comparator<Employee> byNameAndSalary=byName.thenComparing(bySalary);
+
+---------------------------------------------------------------------------------------			
+	
+			

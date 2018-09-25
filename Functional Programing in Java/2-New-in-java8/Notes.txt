@@ -1,0 +1,36 @@
+
+
+
+
+
+ new in java-8
+ ----------------
+ 
+ 	
+ 	- FP using Lambda Expressions
+ 	- Stream API  ==> to process group of elements
+ 	- Time API ( java.time.* )
+ 	
+    
+    
+    - Interface with default + static methods    
+   
+ 	
+    	
+ 
+ 
+ 
+ --------------------------------------------------
+ 
+ 
+ Abstract-class  vs  Interface
+ ---------------------------------
+ 
+ 
+ my-collection-F.W
+ ---------------------------
+ 
+ top-level    : Interface
+ middle-level : Abstract-class ( optional )
+ bottom-level : implementation(s)
+ 
