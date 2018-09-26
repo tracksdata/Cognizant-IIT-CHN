@@ -1,0 +1,50 @@
+JDBC  (Java database Connectivity) 4.0. API
+----------------------------------------------
+-> JDBC API is  used to connect to any type of data base
+      To perform various DBMS operations
+-> Classes and interfaces in JDBC helpful to connect to
+     Specified database
+Interfaces
+--------------
+	1. Connection
+	2. Statement
+	3. DatabaseMetaData
+	4. PreparedStatement
+	5. CallableStatement. (Functions and procedures )
+	6. ResultSet (Table)
+	7. ResultSetMetaData
+
+Classes
+----------
+	1. DriverManager
+	2. Types
+
+Steps to Establish Connection to Databases
+-------------------------------------------------
+1. Load Driver class for a specificities database
+2. Provide Database Server Information to Connect(URL)
+
+ oracle.jdbc.driver.OracleDriver
+ ("jdbc:oracle:thin@localhost:1521:orcl","Scott","tiger")
+
+ com.mysql.jdbc.Driver
+("Jdbc:mysql://localhost:3306/test","root","root")
+
+
+create table product
+(
+id number(5) primary key,
+name varchar2(20),
+price float
+);
+
+
+
+
+
+
+
+
+
+
+	
