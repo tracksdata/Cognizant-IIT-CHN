@@ -54,6 +54,18 @@ executeUpdate -> int (Statement/PreparedStatement)
 executeQuery -> ResultSet   (ResultSet)
 execute() -> boolean. ( CallableStatement)
 
+ResultSet
+------------
+-> Holds table data
+-> executeQuery() -> ResultSet
+
+Types of ResultSet
+--------------------
+	-> ForwardOnlyresultSet
+	-> ConcurUpdatable
+			-> Sensitive
+			->InSensitive
+Note: By default every result is 'FarwardOnlyResultSet'
 
 
 

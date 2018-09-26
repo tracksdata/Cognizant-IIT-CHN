@@ -10,7 +10,12 @@ public class DBUtils {
 
 	private static Connection con = null;
 
-	public static Connection getConnection() {
+	public static Connection getConnection(String name) {
+		String token = null;
+		if (name.equals("mysql"))
+			token = "1";
+		else
+			token = "";
 
 		if (con == null) {
 			try {
@@ -18,9 +23,9 @@ public class DBUtils {
 				Properties props = new Properties();
 				props.load(fis);
 
-				Class.forName(props.getProperty("oracle.driver"));
-				con = DriverManager.getConnection(props.getProperty("url"), props.getProperty("user"),
-						props.getProperty("pwd"));
+				Class.forName(props.getProperty("driver" + token));
+				con = DriverManager.getConnection(props.getProperty("url" + token), props.getProperty("user" + token),
+						props.getProperty("pwd" + token));
 
 			} catch (Exception e) {
 				e.printStackTrace();
