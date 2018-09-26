@@ -15,10 +15,18 @@ public class Test {
 					"tiger");
 			// System.out.println("Connected with
 			// "+con.getMetaData().getDatabaseProductName());
+			int id = 87;
+			String name = "Mac";
+			float price = 7664;
 
-			String q1 = "insert into product values(2,'Soap',34.54)";
+			String q1 = "insert into product values("+id+",'"+name+"',"+price+")";
+			System.out.println("Query: "+q1);
+			// String q2 = "update product set name='mobile' where id=1";
 			Statement stmt = con.createStatement();
+			// Statement stmt1 = con.createStatement();
 			int x = stmt.executeUpdate(q1);
+			// int y = stmt1.executeUpdate(q2);
+
 			if (x != 0) {
 				System.out.println(x + " statement(s) executed");
 			} else {

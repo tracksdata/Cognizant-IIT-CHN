@@ -41,6 +41,20 @@ price float
 
 
 
+Types of JDBC Drivers
+-----------------------------
+4 types 
+----------
+-> Type - 1 (Jdbc-Odbc Bridge)
+-> Type -2 (Native Driver)
+-> Type -3 (Thick / network protocol/Direct)
+-> Type -4 (Thin / Direct )
+
+executeUpdate -> int (Statement/PreparedStatement)
+executeQuery -> ResultSet   (ResultSet)
+execute() -> boolean. ( CallableStatement)
+
+
 
 
 
