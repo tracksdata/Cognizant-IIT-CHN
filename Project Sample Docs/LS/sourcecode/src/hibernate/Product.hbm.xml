@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hcl.cf.webstore.domain.entities.Product" table="PRODUCT"
+		lazy="false">
+
+		<id name="id" column="PRODUCT_ID">
+			<generator class="native">
+			</generator>
+		</id>
+
+		<property name="name" type="string" not-null="true"/>
+		<property name="description" type="string" not-null="true"/>
+		<property name="cost" type="double"/>
+		<property name="units" type="long"/>
+
+		<set name="items" table="ITEM" lazy="true">
+			<key column="PRODUCT_ID" />
+			<one-to-many class="com.hcl.cf.webstore.domain.entities.Item" />
+		</set>
+
+		<component name="images"
+			class="com.hcl.cf.webstore.domain.entities.Images">
+			<set name="images" lazy="false" cascade="all" table="IMAGE">
+				<key column="PRODUCT_ID" />
+				<one-to-many class="com.hcl.cf.webstore.domain.entities.Image" />
+			</set>
+		</component>
+
+	</class>
+</hibernate-mapping>

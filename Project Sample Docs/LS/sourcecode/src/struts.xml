@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- Configuration for the default package. -->
+	<package name="default" namespace="" extends="struts-default">
+
+		<!-- Default interceptor stack. -->
+		<default-interceptor-ref name="paramsPrepareParamsStack" />
+
+		<global-results>
+			<result name="error">/jsp/error.jsp</result>
+			<result name="adderror">/jsp/addError.jsp</result>
+			<result name="sessionerror">/jsp/sessionError.jsp</result>
+			<result name="categoryerror">/jsp/categoryError.jsp</result>
+			<result name="subcategoryerror">/jsp/subcategoryError.jsp</result>
+			<result name="producterror">/jsp/productError.jsp</result>
+			<result name="itemerror">/jsp/itemError.jsp</result>
+		</global-results>
+
+		<action name="index"
+			class="com.hcl.cf.webstore.web.struts.actions.ListCatalogAction"
+			method="execute">
+			<result name="success">/jsp/catalogList.jsp</result>
+			<!-- we don't need the full stack here -->
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="getCategory"
+			class="com.hcl.cf.webstore.web.struts.actions.ListCategoryAction"
+			method="execute">
+			<result name="success">/jsp/categoryList.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="getSubCategoryOrProduct"
+			class="com.hcl.cf.webstore.web.struts.actions.ListSubCategoryOrProductAction"
+			method="execute">
+			<result name="category">/jsp/categoryList.jsp</result>
+			<result name="product">/jsp/productList.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="getProduct"
+			class="com.hcl.cf.webstore.web.struts.actions.DisplayProductAction"
+			method="execute">
+			<result name="success">/jsp/product.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="getItem"
+			class="com.hcl.cf.webstore.web.struts.actions.DisplayItemAction"
+			method="execute">
+			<result name="success">/jsp/item.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="getItems"
+			class="com.hcl.cf.webstore.web.struts.actions.ListItemsAction"
+			method="execute">
+			<result name="success">/jsp/itemList.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="addProductToCart"
+			class="com.hcl.cf.webstore.web.struts.actions.AddProductToCartAction"
+			method="execute">
+			<result name="success">/jsp/cart.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="addItemToCart"
+			class="com.hcl.cf.webstore.web.struts.actions.AddItemToCartAction"
+			method="execute">
+			<result name="success">/jsp/cart.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="removeItem"
+			class="com.hcl.cf.webstore.web.struts.actions.RemoveItemAction"
+			method="execute">
+			<result name="success">/jsp/cart.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="removeProduct"
+			class="com.hcl.cf.webstore.web.struts.actions.RemoveProductAction"
+			method="execute">
+			<result name="success">/jsp/cart.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="showOrderDetails"
+			class="com.hcl.cf.webstore.web.struts.actions.ShowOrderDetailsAction"
+			method="execute">
+			<result name="login">/jsp/myAccount.jsp</result>
+			<result name="success">/jsp/ship_Bill.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="login"
+			class="com.hcl.cf.webstore.web.struts.actions.LoginAction" method="execute">
+			<result name="success" type="chain">index</result>
+			<result name="showBillingDetails">/jsp/ship_Bill.jsp</result>
+			<result name="usererror">/jsp/userError.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="signOut"
+			class="com.hcl.cf.webstore.web.struts.actions.SignOutAction" method="execute">
+			<result name="success" type="chain">showUserAccount</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="registerUser"
+			class="com.hcl.cf.webstore.web.struts.actions.RegisterUserAction"
+			method="execute">
+			<result name="success">/jsp/cart.jsp</result>
+			<result name="reenter">/jsp/registration.jsp</result>
+			<result name="showBillingDetails">/jsp/ship_Bill.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="showRegistrationForm"
+			class="com.hcl.cf.webstore.web.struts.actions.ShowRegistrationFormAction"
+			method="execute">
+			<result name="success">/jsp/registration.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="placeOrder"
+			class="com.hcl.cf.webstore.web.struts.actions.PlaceOrderAction"
+			method="execute">
+			<result name="sucess">/jsp/order.jsp</result>
+			<result name="showBillingDetails">/jsp/ship_Bill.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="clearCartAndOrder"
+			class="com.hcl.cf.webstore.web.struts.actions.ClearCartAndOrderAction"
+			method="execute">
+			<result name="success" type="chain">index</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="showUserAccount"
+			class="com.hcl.cf.webstore.web.struts.actions.ShowUserAccountAction"
+			method="execute">
+			<result name="success">/jsp/accountInfo.jsp</result>
+			<result name="login">/jsp/myAccount.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="showHelp"
+			class="com.hcl.cf.webstore.web.struts.actions.ShowHelpAction" method="execute">
+			<result name="success">/jsp/help.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="showCart"
+			class="com.hcl.cf.webstore.web.struts.actions.ShowCartAction" method="execute">
+			<result name="success">/jsp/cart.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="updateCart"
+			class="com.hcl.cf.webstore.web.struts.actions.UpdateCartAction"
+			method="execute">
+			<result name="success" type="chain">showCart</result>
+			<result name="quantityerror">/jsp/quantityError.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+	</package>
+</struts>

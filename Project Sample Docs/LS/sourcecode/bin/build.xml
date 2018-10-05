@@ -1,0 +1,97 @@
+<project name="WebStore" default="webapplication" basedir="..\">
+	
+	<!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="build" location="build\classes"/>
+	<property name="war" location="war"/>
+	<property name="WebContent" location="WebContent"/>
+	<property name="webapp" location="build\webapp"/>
+	<property name="project" value="WebStore"/>
+	
+	<property name="tomcat_webapps" location="D:\Softwares\Program Files\apache-tomcat-7.0.0\apache-tomcat-7.0.0\webapps"/>
+	
+    <path id="classpath">
+        <fileset dir="${WebContent}\WEB-INF\lib" includes="**/*.jar"/>
+    </path>	
+	
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" depends="init"
+		description="compile the source " >
+			<!-- Compile the java code from ${src} into ${bin} -->
+			<javac srcdir="${src}" destdir="${build}"
+				classpathref="classpath"/>
+	</target>
+	
+	<target name="webapplication" depends="compile">
+		
+		<mkdir dir="${webapp}"/>
+		<mkdir dir="${webapp}/WEB-INF/"/>
+		<mkdir dir="${webapp}/WEB-INF/classes"/>
+		
+		<copy todir="${webapp}/jsp">
+			<fileset dir="${WebContent}/jsp"/>
+		</copy>
+
+		<copy todir="${webapp}/db">
+			<fileset dir="${WebContent}/db"/>
+		</copy>
+
+		<copy todir="${webapp}/images">
+			<fileset dir="${WebContent}/images"/>
+		</copy>
+
+		<copy todir="${webapp}/WEB-INF">
+			<fileset dir="${WebContent}\WEB-INF"/>
+		</copy>
+				
+		<copy todir="${webapp}/WEB-INF/classes">
+			<fileset dir="${build}"/>
+		</copy>
+	
+		<copy todir="${webapp}/WEB-INF/classes/hibernate">
+			<fileset dir="${src}/hibernate"/>
+		</copy>
+
+		<copy todir="${webapp}/WEB-INF/classes">
+			<fileset file="${src}/hibernate.cfg.xml"/>
+			<fileset file="${src}/struts.xml"/>
+		</copy>
+				
+	</target>
+	
+	 <target name="war" depends="webapplication">
+		
+		<mkdir dir="${war}"/> 
+		 	  
+		<jar jarfile="${war}/${project}.war" basedir="${webapp}" />
+		 
+	 </target>	
+	
+	 <target name="deploy_in_tomcat" depends="webapplication">
+		
+		<mkdir dir="${tomcat_webapps}/WebStore"/>
+		 
+		<copy todir="${tomcat_webapps}/WebStore">
+			<fileset dir="${webapp}"/>
+		</copy>
+		 		 
+	 </target>	
+		
+	  <target name="clean" description="clean up" >
+		<!-- Delete the ${build} and ${war} directory trees -->
+		<delete dir="${build}"/>
+		<delete dir="${war}"/>
+		<delete dir="${webapp}"/>
+	  </target>	
+	
+	  <target name="clean_tomcat_webapp" description="clean up tomcat webapp" >
+		<delete dir="${tomcat_webapps}/WebStore"/>
+	  </target>	
+		
+</project>

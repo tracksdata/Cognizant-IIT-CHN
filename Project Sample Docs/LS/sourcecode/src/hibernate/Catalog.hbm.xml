@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hcl.cf.webstore.domain.entities.Catalog" table="CATALOG">
+
+		<id name="id" column="CATALOG_ID">
+			<generator class="native">
+			</generator>
+		</id>
+
+		<property name="name" type="string" column="NAME" not-null="true"/>
+		<property name="description" type="string" column="DESCRIPTION" not-null="true"/>
+
+		<set name="categories" table="CATALOG_CATEGORY">
+			<key column="CATALOG_ID" />
+			<many-to-many column="CATEGORY_ID"
+				class="com.hcl.cf.webstore.domain.entities.Category">
+			</many-to-many>
+		</set>
+
+		<component name="images"
+			class="com.hcl.cf.webstore.domain.entities.Images">
+			<set name="images" lazy="false" cascade="all" table="IMAGE">
+				<key column="CATALOG_ID" />
+				<one-to-many class="com.hcl.cf.webstore.domain.entities.Image" />
+			</set>
+		</component>
+
+	</class>
+</hibernate-mapping>

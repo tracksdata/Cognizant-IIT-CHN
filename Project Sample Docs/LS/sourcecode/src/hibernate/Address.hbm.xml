@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hcl.cf.webstore.domain.entities.Address" table="ADDRESS">
+
+		<id name="id" column="ADDRESS_ID">
+			<generator class="native">
+			</generator>
+		</id>
+
+		<property name="address" type="string" column="ADDRESS" not-null="true"/>
+		<property name="city" type="string" column="CITY" not-null="true"/>
+		<property name="state" type="String" column="STATE" not-null="true"/>
+		<property name="country" type="string" column="COUNTRY" not-null="true"/>
+		<property name="zip" type="long" column="ZIP" not-null="true"/>
+		<property name="type" type="string" column="TYPE"/>
+		<property name="phoneNumber" type="long" column="PHONE_NUM" not-null="true"/>
+	</class>
+</hibernate-mapping>

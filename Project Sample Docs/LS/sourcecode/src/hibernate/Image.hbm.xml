@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hcl.cf.webstore.domain.entities.Image" table="IMAGE">
+
+		<id name="id" column="IMAGE_ID">
+			<generator class="native">
+			</generator>
+		</id>
+
+		<property name="name" type="string" column="NAME" not-null="true"/>
+		<property name="path" type="string" column="PATH" not-null="true"/>
+
+	</class>
+</hibernate-mapping>

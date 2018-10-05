@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hcl.cf.webstore.domain.entities.Order" table="TORDER">
+
+		<id name="id" column="ORDER_ID">
+			<generator class="native">
+			</generator>
+		</id>
+
+		<property name="orderStatus" type="string" not-null="true"/>
+
+		<property name="date" type="date" not-null="true" update="false" />
+
+		<many-to-one name="userAccount"
+			class="com.hcl.cf.webstore.domain.entities.UserAccount" column="USER_ID"
+			not-null="true" cascade="all"/>
+
+		<many-to-one name="creditCard"
+			class="com.hcl.cf.webstore.domain.entities.CreditCard" column="CREDIT_CARD_ID"
+			unique="true" not-null="true" cascade="all" />
+
+		<many-to-one name="shippingAddress"
+			class="com.hcl.cf.webstore.domain.entities.Address" column="ADDRESS_ID"
+			unique="true" not-null="true" cascade="all" />
+
+		<component name="cart" class="com.hcl.cf.webstore.domain.entities.Cart"
+			lazy="true">
+
+			<list name="products" table="ORDER_PRODUCT">
+				<key column="ORDER_ID" />
+				<list-index column="O_P_ID" />
+				<composite-element
+					class="com.hcl.cf.webstore.domain.entities.CartProduct">
+					<property name="quantity" />
+					<many-to-one name="product" column="PRODUCT_ID"
+						class="com.hcl.cf.webstore.domain.entities.Product" />
+				</composite-element>
+			</list>
+
+			<list name="items" table="ORDER_ITEM">
+				<key column="ORDER_ID" />
+				<list-index column="O_I_ID" />
+				<many-to-many column="ITEM_ID"
+					class="com.hcl.cf.webstore.domain.entities.Item" unique="true">
+				</many-to-many>
+			</list>
+
+		</component>
+
+	</class>
+</hibernate-mapping>

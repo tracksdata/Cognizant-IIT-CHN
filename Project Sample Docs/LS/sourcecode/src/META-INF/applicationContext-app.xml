@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="personAction" class="com.hcl.cf.webstore.web.struts.actions.PersonAction" />
+
+	<bean id="index"
+		class="com.hcl.cf.webstore.web.struts.actions.ListCatalogAction" />
+
+	<bean id="getCategory"
+		class="com.hcl.cf.webstore.web.struts.actions.ListCategoryAction" />
+
+	<bean id="getSubCategoryOrProduct"
+		class="com.hcl.cf.webstore.web.struts.actions.ListSubCategoryOrProductAction" />
+
+	<bean id="getProduct"
+		class="com.hcl.cf.webstore.web.struts.actions.DisplayProductAction" />
+
+	<bean id="getItem"
+		class="com.hcl.cf.webstore.web.struts.actions.DisplayItemAction" />
+
+	<bean id="getItems" class="com.hcl.cf.webstore.web.struts.actions.ListItemsAction" />
+
+	<bean id="addProductToCart"
+		class="com.hcl.cf.webstore.web.struts.actions.AddProductToCartAction" />
+
+	<bean id="addItemToCart"
+		class="com.hcl.cf.webstore.web.struts.actions.AddItemToCartAction" />
+
+	<bean id="removeItem" class="com.hcl.cf.webstore.web.struts.actions.RemoveItemAction" />
+
+	<bean id="removeProduct"
+		class="com.hcl.cf.webstore.web.struts.actions.RemoveProductAction" />
+
+	<bean id="showOrderDetails"
+		class="com.hcl.cf.webstore.web.struts.actions.ShowOrderDetailsAction" />
+
+	<bean id="login" class="com.hcl.cf.webstore.web.struts.actions.LoginAction" />
+
+	<bean id="registerUser"
+		class="com.hcl.cf.webstore.web.struts.actions.RegisterUserAction" />
+
+	<bean id="showRegistrationForm"
+		class="com.hcl.cf.webstore.web.struts.actions.ShowRegistrationFormAction" />
+
+	<bean id="placeOrder" class="com.hcl.cf.webstore.web.struts.actions.PlaceOrderAction" />
+
+	<bean id="clearCartAndOrder"
+		class="com.hcl.cf.webstore.web.struts.actions.ClearCartAndOrderAction" />
+
+	<bean id="showUserAccount"
+		class="com.hcl.cf.webstore.web.struts.actions.ShowUserAccountAction" />
+
+	<bean id="signOut" class="com.hcl.cf.webstore.web.struts.actions.SignOutAction" />
+
+	<bean id="showHelp" class="com.hcl.cf.webstore.web.struts.actions.ShowHelpAction" />
+
+	<bean id="showCart" class="com.hcl.cf.webstore.web.struts.actions.ShowCartAction" />
+
+	<bean id="updateCart" class="com.hcl.cf.webstore.web.struts.actions.UpdateCartAction" />
+
+</beans>

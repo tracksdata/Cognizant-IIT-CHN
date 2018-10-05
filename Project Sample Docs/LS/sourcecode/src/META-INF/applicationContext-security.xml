@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                         http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                        http://www.springframework.org/schema/security
+                         http://www.springframework.org/schema/security/spring-security-2.0.1.xsd">
+
+	<beans:bean id="personAction"
+		class="com.hcl.cf.webstore.web.struts.actions.PersonAction" />
+
+	<beans:bean id="index"
+		class="com.hcl.cf.webstore.web.struts.actions.ListCatalogAction" />
+
+	<beans:bean id="getCategory"
+		class="com.hcl.cf.webstore.web.struts.actions.ListCategoryAction" />
+
+	<beans:bean id="getSubCategoryOrProduct"
+		class="com.hcl.cf.webstore.web.struts.actions.ListSubCategoryOrProductAction" />
+
+	<beans:bean id="getProduct"
+		class="com.hcl.cf.webstore.web.struts.actions.DisplayProductAction" />
+
+	<beans:bean id="getItem"
+		class="com.hcl.cf.webstore.web.struts.actions.DisplayItemAction" />
+
+	<beans:bean id="getItems"
+		class="com.hcl.cf.webstore.web.struts.actions.ListItemsAction" />
+
+	<beans:bean id="addProductToCart"
+		class="com.hcl.cf.webstore.web.struts.actions.AddProductToCartAction" />
+
+	<beans:bean id="addItemToCart"
+		class="com.hcl.cf.webstore.web.struts.actions.AddItemToCartAction" />
+
+	<beans:bean id="removeItem"
+		class="com.hcl.cf.webstore.web.struts.actions.RemoveItemAction" />
+
+	<beans:bean id="removeProduct"
+		class="com.hcl.cf.webstore.web.struts.actions.RemoveProductAction" />
+
+	<beans:bean id="showOrderDetails"
+		class="com.hcl.cf.webstore.web.struts.actions.ShowOrderDetailsAction" />
+
+	<beans:bean id="login"
+		class="com.hcl.cf.webstore.web.struts.actions.LoginAction" />
+
+	<beans:bean id="registerUser"
+		class="com.hcl.cf.webstore.web.struts.actions.RegisterUserAction" />
+
+	<beans:bean id="showRegistrationForm"
+		class="com.hcl.cf.webstore.web.struts.actions.ShowRegistrationFormAction" />
+
+	<beans:bean id="placeOrder"
+		class="com.hcl.cf.webstore.web.struts.actions.PlaceOrderAction" />
+
+	<beans:bean id="clearCartAndOrder"
+		class="com.hcl.cf.webstore.web.struts.actions.ClearCartAndOrderAction" />
+
+	<beans:bean id="showUserAccount"
+		class="com.hcl.cf.webstore.web.struts.actions.ShowUserAccountAction" />
+
+	<beans:bean id="signOut"
+		class="com.hcl.cf.webstore.web.struts.actions.SignOutAction" />
+
+	<beans:bean id="showHelp"
+		class="com.hcl.cf.webstore.web.struts.actions.ShowHelpAction" />
+
+
+	<beans:bean id="showCart"
+		class="com.hcl.cf.webstore.web.struts.actions.ShowCartAction" />
+
+	<beans:bean id="updateCart"
+		class="com.hcl.cf.webstore.web.struts.actions.UpdateCartAction" />
+
+</beans:beans>
