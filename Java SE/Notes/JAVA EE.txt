@@ -1,99 +1,49 @@
-JAVA EE (Enterprise Edition)
---------------------------------
--> Client - Server 
--> Multi Threaded
--> Concurrence Access
--> request and response driven development
+Web Development
+	-> Server side (ASP, JSP, CGI, Servlet)
+							Rest API (JAX -RS), Spring Rest
+	-> Client Side (Angular, React, jQuery,Ajax)
 
-1. Request Driven
-		-> Servelts, JSP, Structs, Spring
-2. Event Driven
-		-> JSF (Java Server Faces)
+-> To development web applications, we use 
+     A language called HTML
 
-Java EE Technologies 
-------------------------
--> Servlet API
--> JSP
--> JSTL-> Core, XML, SQL, FMT
--> JSF (Framework)
--> EJB (Enterprise Java Beans)-> 											Distributed
--> JPA (Java Persistence API)-> JDBC
--> JTA (Java Transaction API)
--> JMS (Java Messinging Service)
--> JAXB (JAVA API for XML Binding)
--> JAXP (JAVA API for XML Processing)
--> JAX-RS (Rest Service)
--> JAX-WS (Web Service)
+->Web Page Creations two types
+		1. Static page designing (HTML)
+					-> Presentation
+		2. Dynamic page designing(Server side)
 
 
-------------------------
+Hyper Text Markup Language
+			-> Tag Based Language
+			-> Mark Up Tags-->.   < >  <html>
+						<b> Hello </b>
+			-> Parsers
+							-> SAX  (OLD)
+							-> DOM (Tree Structured style)
 
-1. Struts -> web MVC framework
-2. Spring -> Integration Framework
-3. Hibernate -> like JPA
-4. Ibatics/Toplink -> Like Hibernate
+<html>
+		<body>
+					<h1>welcome </h1>
+		</body>
+</html>
 
-JEE Servers
-----------------
-Two Types
-1. Web Application Server
-		-> JBoss, Weblogic , Glashfish
-2. Web Server
-		-> Apache Tomcat
+ DOM(Document Object Model)
+--------------------------------------
 
-Protocols
--------------
+Diff web page and web application
 
-1. http / https
+-> web Application
+		-> combination of HTML pages
+->Web Page
+		-> Single HTML file
 
-http/https status codes
----------------------
-1x -> Information
- 2x -> Success
- 3x -> Redirections
- 4x -> client side exceptions/error
- 5x -> server side exception / error
+HTML
+---------
 
-Browser  -> request -> object
-http://localhost:8080/App1/getEmps
-Server -> response with status code
+->W3C -> Wold wide web consortium .
+			-> Its an Organisation which standardise Web Development Technologies
 
-Java EE
-----------
-	-> Servlet API (3.1)
-		1x, 2x- 2.5  (XML)
-		3.0 -> 3.1 (Annotation)
-
-Servlet API
------------------
--> Servlet is a Java class object which implements javax.servlet.Servlet interface
-
--> Servlet stores in web server and executed
-     By/from the web servers
-
-javax.servlet.GenericServlet implements 
-Servlet{
- }
-
-javax.servlet.http.HttpServlet extends 
-GenericServlet{  }
-
-Class Abc extends HttpServlet {  }
-
-    Servlet-api.jar
-
-
-
-
-
-
-
-
-
-
-
-
-
+ES (Ecma Scritpt ) 
+		-> JS, jQuery, Angular .. etc
 
 
 
