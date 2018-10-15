@@ -1,0 +1,82 @@
+What happens when a client send request to a servlet first time?
+1. Web Container takes the request, and opens 
+     Web.xml file (DD)
+2. WC Checks the given url name in the <servlet-mapping> section.
+3.  WC executes the Servlet class which is 
+     Corresponding to the given URL
+4. WC creates Servlet class object, if that was not created earlier.
+5. If the Servlet class object creation is successful or already available, then WC starts calling life cycle methods 
+
+
+Servlet Life Cycle Methods
+--------------------------------
+1. Init
+2. Service
+3. Destroy
+
+1. Init
+-----------
+-> init methods calls only once in the life cycle
+2. Service methods
+--------------------
+-> For each request service method is called every time
+3. Destroy
+-------------
+-> Destroy method got called by the container when the servlet is finished its job/ Server restarted/Servlet Context object is recreated.
+
+
+Rules 
+-------
+1. No Servlet must not have any HTML tags
+
+To Display the data produced by a servlet, you should use layered structure 
+
+General Java Layers
+-----------------------
+1. Model
+2. Service
+3. Dao
+4. Controller(Servlet)
+5. View (Presentation logic)-> JSP, Angular
+
+
+Web Application Layer 
+------------------------
+1. MVC (Model, View , Controller)
+
+-> MVC -1 (No presentation Layer).-> swings
+-> MVC- 2( with Presentation logic) -> JSP
+
+
+Interfaces in Servlets
+---------------------------
+1. HttpServletRequest
+2. HttpServletResponse
+3. ServletContext
+4. ServletConfig
+5. HttpSession
+6.RequestDispatcher
+
+Classes 
+----------
+1. Cookie
+
+
+Scoped Objects
+--------------------
+-> An object that let you to set content, and 
+     That content is available across the app.
+1. request
+2. session
+3. application
+
+
+
+
+
+
+
+
+
+
+

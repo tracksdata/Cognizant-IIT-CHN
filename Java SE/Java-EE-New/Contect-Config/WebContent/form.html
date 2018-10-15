@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2 align="center">Employee Form</h2><hr/>
+<form action="EmployeeServlet">
+<table align="center">
+  <tr>
+    <th>Employee Name</th>
+    <td><input type="text" name="empName"></td>
+  </tr>
+   <tr>
+    <th>Employee Salary</th>
+    <td><input type="text" name="empSalary"></td>
+  </tr>
+  
+   <tr>
+    <th>Employee Gender</th>
+    <td>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    </td>
+    
+  </tr>
+  
+  <tr>
+  	<th>Select Hobbies</th>
+  	<td>
+  		<input type="checkbox" name="hobbies" value="Foot Ball">Foot Ball
+  		<input type="checkbox" name="hobbies" value="Volley Ball">Volley Ball
+  		<input type="checkbox" name="hobbies" value="Bsket Ball">Basket Ball
+  		<input type="checkbox" name="hobbies" value="Ring Ball">Rin g Ball
+  		<input type="checkbox" name="hobbies" value="Bla Ball">Bla Ball
+  	</td>
+  </tr>
+  
+  <tr>
+  	<th>Select Department</th>
+  	<td><select name="deptName">
+  		<option>IT</option>
+  		<option>HR</option>
+  		<option>Accounts</option>
+  	</select>
+  	</td>
+  </tr>
+  
+  <tr>
+  	<th colspan="2">
+  	<input type="submit" value="Save">
+  		<input type="reset" value="Clear All">
+  </tr>
+  
+</table>
+
+</form>
+<hr/>
+
+</body>
+</html>
