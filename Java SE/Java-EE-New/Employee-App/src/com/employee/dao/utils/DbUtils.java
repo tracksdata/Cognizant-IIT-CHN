@@ -12,8 +12,8 @@ public class DbUtils {
 		
 		if(con==null) {
 			try {
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-				con=DriverManager.getConnection("jdbc:oracle:thin:@192.168.194.128:3306:orcl", "scott", "tiger");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root1234");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
