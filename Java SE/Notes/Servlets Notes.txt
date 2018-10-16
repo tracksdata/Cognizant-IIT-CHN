@@ -70,6 +70,72 @@ Scoped Objects
 2. session
 3. application
 
+ SrvTwo?name=abc&addr=Hyderabad&age=98
+
+Cookies
+-----------
+
+1.  Cookie is a java class object
+2. Cookies are created by server and stores
+     In browsers (clients)
+
+
+Servlet Chaining
+--------------------
+-> Multiple servers are involved in processing
+     of a single request. 
+
+       RequestDispatcher 
+
+
+Story board of servlet
+----------------------------
+
+javax.servlet.Servlet
+------------------------
+getServletConfig
+Destroy
+Service
+getServletInfo
+Init
+---------------------------
+javax.servlet.GenericServlet implements Servlet{
+Private ServletConfig config;
+public void init(ServletConfig config){
+This.config=config;
+init(); // second init 
+}
+public void init() { }
+}
+
+HttpServlet extends GenericServlet{
+
+private HttpServletRequest request;
+private HttpServletResponse response;
+
+protected void service(ServletRequest req,ServletResponse resp) throws .. {
+	
+request=(HttpServletRequest) req;
+response=(HttpServletResponse) resp;
+
+service(request, response); // second 
+
+}
+protected void service(HttpServletRequest request,HttpServletResponse response) throws ..{
+doGet(request, response);
+doPost(request, response);
+
+}
+
+Protected void doGet(HttpServletRequest request,HttpServletresponse response) throws ..{
+
+}
+
+Protected void doPost(HttpServletRequest request,HttpServletresponse response) throws ..{
+}
+		
+
+
 
 
 
