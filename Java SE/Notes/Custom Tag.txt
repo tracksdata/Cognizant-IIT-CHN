@@ -1,0 +1,9 @@
+Custom tag libraries
+------------------------
+-> Create a class which extends	JspTagSupport or TagSupport
+-> override methods like doStartTag or doEndTag
+-> Provide informat6ion about your above class in a .tld (tag library descriptor) file
+-> Use tld file location in your JSP to use your newly designed tags
+
+
+

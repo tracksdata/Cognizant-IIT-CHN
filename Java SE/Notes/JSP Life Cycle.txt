@@ -1,0 +1,12 @@
+JSP Life Cycle
+-------------------
+
+1. _jspInit
+2._jspService
+3. _jspDestroy
+
+JSP execution phases
+1. JSP is translated to a servlet
+2. Converted Servlet gets compiled
+3. JSP object is created
+4. JSP life cycle methods stat calling
