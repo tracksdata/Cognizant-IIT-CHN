@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Employee[
+
+<!ELEMENT Employee (id,name,salary,age)>  
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT salary (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+]>
+
+<Employee>
+
+<id>10</id>
+<name>Praveen</name>
+<salary>83643846</salary>
+<age>86</age>
+</Employee>
+

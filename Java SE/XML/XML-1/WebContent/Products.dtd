@@ -1,0 +1,7 @@
+<!ELEMENT Products (Product+)>
+<!ELEMENT Product (id?,name+,price,description*)>
+<!ATTLIST Product type CDATA  #FIXED "Electonics" >
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT description (#PCDATA)>

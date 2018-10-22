@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Product SYSTEM "Product.dtd">
+
+<Product>
+
+<id>111</id>
+<name>Pen</name>
+<price>834638</price>
+
+</Product>
