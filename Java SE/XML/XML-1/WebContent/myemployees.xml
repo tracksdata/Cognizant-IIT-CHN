@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:employee xmlns:tns="http://www.praveen.com" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.praveen.com employee.xsd ">
+  <tns:id>1234</tns:id>
+ 
+  <tns:salary>34.76</tns:salary>
+   <tns:name>Praveen</tns:name>
+ 
+</tns:employee>
+
