@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <script src="events.js"></script>
+
+    <style>
+    span{
+        color: red;
+        font-weight: bold;
+    }
+    </style>
+
+</head>
+<body >
+
+<form action="one.jsp" onsubmit="return validateForm(this)">
+
+    <table>
+
+            <tr>
+                <th>Id</th>
+                <td><input id="empId"></td>
+                <td><span id="empIdError"></span></td>
+            </tr>
+
+            <tr>
+                    <th>Name</th>
+                    <td><input id="empName"></td>
+                    <td><span id="empNameError"></span></td>
+                </tr>
+            <tr>
+                <th colspan="2">
+                    <button type="submit">Save</button>
+                </th>
+            </tr>
+
+    </table>
+
+  
+</form>
+
+
+    
+</body>
+</html>
