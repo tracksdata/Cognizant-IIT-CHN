@@ -46,8 +46,9 @@ $('.vacation').on('keyup click', '.quantity', function() {
     // Set the total to price * quantity
     var price = +$(this).closest('.vacation').data('price');
     var quantity = +$(this).val();
-    $('#total').text(price * quantity);
-    
+   // $('#total').text(price * quantity);
+   $(this).parent().parent().find('#total').text(price * quantity);
+
 });
 
 
