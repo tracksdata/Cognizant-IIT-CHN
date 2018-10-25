@@ -316,3 +316,270 @@ java.net.UnknownHostException: dist.springsource.com: nodename nor servname prov
 	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
 	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:60)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 14:52:42.924
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 14:52:42.929
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jface.text 2 0 2018-10-25 16:56:37.622
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-10-25 16:56:37.655
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 16:57:40.989
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 16:57:40.993
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 16:57:42.240
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 16:57:42.243
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 16:57:47.166
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 16:57:47.168
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:00:10.370
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:00:10.373
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:00:11.611
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:00:11.614
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:01:39.581
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:01:39.585
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:37:04.657
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:37:04.660
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:37:05.869
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:37:05.871
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:37:16.662
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:37:16.663
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:38:13.184
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:38:13.194
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:39:05.564
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:39:05.565
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jface.text 2 0 2018-10-25 17:39:59.653
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:39:59.975
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:39:59.978
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:40:34.406
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:40:34.408
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:40:58.549
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:40:58.552
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:41:22.377
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:41:22.379
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:43:38.913
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:43:38.915
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:43:47.037
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:43:47.038
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2018-10-25 17:44:22.551
+!MESSAGE Full project indexing required:
+  [+] /Users/praveen/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+  [+] /Users/praveen/.m2/repository/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar
+  [+] /Users/praveen/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+  [+] /Users/praveen/.m2/repository/junit/junit/4.12/junit-4.12.jar
+  [+] /Users/praveen/.m2/repository/mysql/mysql-connector-java/8.0.13/mysql-connector-java-8.0.13.jar
+  [+] /Users/praveen/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+  [+] /Users/praveen/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.jar
+  [+] /Users/praveen/.m2/repository/org/hibernate/hibernate-core/4.3.11.Final/hibernate-core-4.3.11.Final.jar
+  [+] /Users/praveen/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar
+  [+] /Users/praveen/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar
+  [+] /Users/praveen/.m2/repository/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar
+  [+] /Users/praveen/.m2/repository/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar
+  [+] /Users/praveen/.m2/repository/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar
+  [+] /Users/praveen/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar
+  [+] /Users/praveen/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+  [+] /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/jrt-fs.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:45:10.633
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:45:10.634
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:46:00.442
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:46:00.444
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:46:38.975
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:46:38.976
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:47:12.287
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:47:12.288
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:47:31.705
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:47:31.707
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:47:42.252
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:47:42.253
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:47:58.197
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:47:58.198
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:49:35.112
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:49:35.113
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:50:13.090
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:50:13.097
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:50:38.721
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-10-25 17:50:38.722
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
