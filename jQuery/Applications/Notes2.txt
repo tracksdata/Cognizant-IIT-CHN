@@ -1,0 +1,312 @@
+
+Ref : http://crockford.com/
+
+-------------------------------------------------------------------
+.js-intro
+-----------
+
+    - scripting lang for web-pages in browser-envi
+    +
+    - server-side lang on  Node.js (javascript runtime)
+
+---------------------------------------------------
+
+.js-Features
+
+    -> FP + OOP
+    -> dynamic 
+
+    -> all IO operations are Non-blocking 
+    -> single-thread process , but we can execute concurrent actions due to non-blocking IO
+
+---------------------------------------------------
+.js-lang is based on 'ECMAScript spec'
+
+latest : ECMAScript-2015 or ES6
+       : ES7
+
+---------------------------------------------------
+How to run .js program ?
+
+   using 'javascript runtime/engine '
+
+browser-envi
+
+    - chrome  (v8 - c++)
+    - firefox (rhino/spider - java)
+    - IE/Edge (chakra)
+    - Safari  ( nitro )
+    ..............
+
+other-envi
+
+    - Node.js (v8 )
+    - JVM     (rhino/nashorn )
+    - MongoDB
+    - Apache CouchDB
+    - Adobe
+    
+-------------------------------------------------------------------
+" Hello World "
+-------------------------------------------------------------------    
+JS-topics
+-------------
+
+level-1
+    1. data-types
+    2. execution context/scope
+    3. FP
+    4. OOP
+level-2
+    1. New-syntax in ES6
+    2. New-APIs in ES6
+    3. JS-modules
+    4. Async APIs i.e Promise API , RxJS
+level-3
+    1. Concurrency Model & Non-blocking IO
+    2. New-Syntax in Es7 
+    3. Best Practices
+    4. javascript as client-side or server-side language
+
+-------------------------------------------------------------------
+
+
+// in 2015 , ES6
+
+
+   New-syntax
+
+   1. string interpolation
+   2. function with default-params & rest-param
+   3. let & const keywords with block-scope
+   4. New OOP with class-syntax
+   5. de-structuring
+   6. spread operator
+   7. octal & binary numbers
+   8. obj-literal enhancements
+   9. symbol data-type
+   10. for-of loop
+   11. Iterable objects
+   12. arrow-functions
+
+
+
+-------------------------------------------------------------------
+
+Front-End / web-ui
+-----------------------
+
+1. HTML  => content
+2. CSS   => style
+3. Javascript => dynamic behav/data
+
+
+
+---------------------------------------------------   
+
+what .js-lang can do with HTML-page in browser-envi?
+
+
+using browser provided web-APIs,
+JavaScript-lang can bring any dynamic activity/data to web-page
+
+browser-APIs :  ==> are based on 'w3c' recommendations ,
+they are implemented nativly by browser & abstracted as JavaScript objects & functions
+
+
+browser-APIs  :
+    ==> DOM, XHR,Timer,....
+
+using DOM api
+-----------------
+ -> can create,retreive,update,delete HTML elements
+ -> can change element's inner text/html content 
+ -> can change element's attributes/properties
+ -> can change element's styles ( css )
+ -> can validate form-fields before submit to server-program
+ -> can create rich UI-components like 
+ ....
+
+using Timer api
+------------------
+ -> can execute any action on timeout/time-interval
+
+using XHR API  / fetch API
+----------------------------
+ -> can communicate with server-side programs async ( AJAX )
+
+
+HTML5 API
+-------------
+
+https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+ 
+
+
+----------------------------------------------------------------------
+
+
+problems with plain-js(your-code) with browser-apis
+
+    => browser compatability issues
+    => memory-management is manual ( i.e clean un-used DOM elements )
+    => performance issues ( i.e should be minimal DOM access)
+    => data-bindig is manual 
+    => too much code  for simple operations
+    => code oraganization is very difficult
+
+-------------------------------------------------------------------
+
+soln-1 :  using server-side page techonologies
+
+          e.g => JSP, asp.net, php, etc.........
+
+
+
+        problems with server-side page techonologies:
+
+        => on every req, server shud re-construct same UI layout with different content , keeping client state
+        => on every resp, we r txring same resources ( css, js , images , fonts ) over n/w , increase n/w bandwidth
+        => on every resp, browser re-loads current page with new-page
+---------------------------------------------------------------------
+
+best-soln : 
+
+        => construct web-ui at client-side only ( in browser )
+
+          - using third-party's Javascript Lib & F.Ws
+
+         
+        1. jQuery
+   
+        mvc/mvvm-pattern based lib & F.w   
+
+        2. backbone
+        3. emberjs
+        4. Angularjs    from google-team
+        5. dojo
+        6. extjs
+        7. knockout
+        .......
+
+
+        component-arch based js lib & F.W
+
+            -> based on w3c's web-component spec
+
+
+        8. React.js  from facebook-team  : v16
+        9. Angular   from google-team    : v6  (  our course )
+        10. Ember
+        11. Vue
+        12. poymerjs
+        ...
+
+---------------------------------------------------------------------
+
+
+.js is
+
+-> all IO operations are Non-blocking 
+-> single-thread process , 
+   but we can execute concurrent actions due to non-blocking IO
+
+--------------------------------------------------------
+
+browser e.g chrome
+
+ 1. javascript-engine  => based on ECMAScript-spec
+      a. stack   : to exectes scopes
+      b. heap    : to hold objects
+ 2. browser web-apis ( DOM, XHR, Timer ,...)   => w3c recommendations   
+ 3. Event/Message/callback-Queue 
+ 4. Event-Loop
+
+ --------------------------------------------------------
+
+
+-------------------------------------------------------------
+
+.js-developement, without module-standards & module-loader
+
+  problems:
+
+        => global-scope naming collisions
+            ->soln: self-executable function pattern
+        => loading dependency modules in-order is difficult  
+
+ -------------------------------------------------------------       
+
+    from third-parties,
+    we got some js-module-standards & loaders
+
+
+   a. AMD (  Asynchronous Module Definition (AMD)  ) spec
+
+        - define()  ==> define new module
+        - require() ==> to load module
+
+        loader(s) : e.g Require.js 
+
+   b. UMD
+
+        loader(s) : System.js
+
+       .....................
+
+   b. commonJS
+
+
+
+
+
+--------------------------------------------------------------------        
+
+commonJS - js-module-standards
+------------------------------
+
+ - every .js file is module by default
+ - all variables & functions in .js file are private by default
+ - to abstract/export any meber to other module , use 'module.exports' object
+ - to require/import any module , use 'require()' function
+ - we cqan group grelated modules into package with description file ( package.json)
+
+
+
+ imp-note : Node.js runtime already implemented this standard as default module-standard
+
+
+
+
+
+
+ NPM ( Node Package Manager )
+ ----------------------------
+
+    - cli tool , runs on Node.js
+
+
+    why we need ?
+
+        => to export/install js-package(s) to/from NPM-repository
+
+
+
+
+----------------------------------------------------------------- ----
+
+
+
+ECMAScript module-standard  ( from ES6 )   ==> ES Modules
+----------------------------------------------------------
+
+
+ - every .js file is module by default
+ - all variables & functions in .js file are private by default
+ - to abstract/export any meber to other module , use 'export' keyword
+ - to require/import any module , use import' keyword
+ - we cqan group grelated modules into package with description file ( package.json)
+
+
+
+

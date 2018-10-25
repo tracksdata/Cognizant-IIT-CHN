@@ -1,0 +1,74 @@
+
+
+Traditional Web-App
+
+
+browser           web-server
+
+-------------------->
+<--------------------
+
+--------------------->
+<--------------------
+
+Limitations :
+
+--> synchronous
+--> on every small new response , browser re-load current page.
+--> on every req , server has to re-costruct entire UI , having client's state
+--> will increase n/w bandwidth
+
+
+Soln:
+
+    browser's Web-API --> XHR API
+  
+    XML --> XMLHttpRequest   ( AJAX )
+    
+    
+    browser        webserver
+    
+    ---------------->
+    
+    do-something
+    
+    <----------------
+       data(XML or JSON  or HTML template)
+    
+    
+    ----------
+    
+    plain XHR API
+    
+    
+    Limitations
+    
+    --> too verbose
+    --> browser compatibility
+    
+    
+    -----------------------------
+    
+    jQuery
+    
+         $.ajax();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+

@@ -1,0 +1,85 @@
+
+
+  HTML + CSS  --> static-web-page in browser
+  
+  
+  to bring interactivity to web-page , we need some lang ( JS )
+  
+  
+  what JS can do on HTML page ?
+  
+  --> can create,rereive,update,delete HTML elements.
+  --> can change elemnt's styles
+  --> can change element's attribute values
+  --> can change element's text content
+  
+  --> can validate form form fields
+  --> can communicate with server asynch , update results ( XHR API )
+  
+  --> cau use all HTML-5 API functionality
+  
+  --> can create RICH UI compponets to HTML page.
+  
+  --------------------------------------------------
+  
+  
+  
+   JS using DOM-API/Web-API can manipulate HTML page.
+   
+   --------------------------------------------------
+   
+   Limitations using plain-JS with HTML pages !!
+   
+   -->  browser compatibility issues
+   -->  too much code
+   -->  performance
+   -->  memory management
+   
+   -->  code organization
+   
+   ----------------------------------------------------
+   
+   JS Libraries and F.Ws
+   
+   library
+   
+   1. jQuery  
+   
+   Frameworks ( MVC , MVVM )
+   
+   1. Backbone JS
+   2. Angular JS  --> google team
+   3. Ember JS
+   4. Knockout
+   
+    UI components
+   
+   1. DOJO
+   2. EXT-JS
+   
+   ------------------------------------------------------
+   
+   
+   
+   Jquery Selectlors ( basic , adv )
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+  
+  

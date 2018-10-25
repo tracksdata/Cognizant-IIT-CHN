@@ -1,0 +1,18 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "test": {
+    "name": "test",
+    "localStorage": "",
+    "file": "",
+    "connector": "memory"
+  },
+  "mydb": {
+    "name": "mydb",
+    "localStorage": "",
+    "file": "localhost",
+    "connector": "memory"
+  }
+}

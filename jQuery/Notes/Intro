@@ -1,0 +1,123 @@
+
+
+JS concepts
+------------
+
+ 
+ --------------------------------------------
+ 
+ 
+ JavaScript
+ ----------
+ 
+   
+   Use
+   
+     --> scripting lang for web-pages
+     +
+     --> server-side prog on NodeJS
+     --> Mobile Appliation
+     --> Desktop Appln
+     --> commnad-line tools
+     --> Testing Tools     ( Karma , Qunit , etc... )
+     --> To write Test-cases  
+ 
+ 
+  Features
+ 
+   --> light-weight
+   --> Funcitional Programming Lang
+   --> OO lang
+   --> suports dynamic dataTypes / Loose typing
+   
+       e.g var i='nag'
+       
+  --> supports 'closure' 
+  --> Single-Threaded lang
+  --> supports concurrency    
+ 
+ 
+ 
+ where/when to use this lang
+ 
+ "For Event-Driven , Async Func execution '
+  
+  
+  ----------------------------
+  
+  Good resources to learn JS 
+  
+  --> MDN javascript
+  --> Principles OO JavaScript  , book
+  --> JavaScript Good Parts     , book  ( Douglas Crockford )
+  --> jstherightway.org
+  
+  --------------------------------------------------
+  
+  
+  
+  
+  
+    JS - DataTypes / Data-structues / variables
+    
+    
+     2 types
+     
+     1. Primitive  --> simple values
+     
+        string
+        number
+        boolean
+        null
+        undefined
+     
+     2. Reference  --> objects
+     
+       imp note :
+       
+       functions alos objects
+       
+       -----------------------------------------
+       
+       
+       
+       
+       
+            
+        'this' keyword
+        Closures
+        Callback functions
+        
+        Inheritance in JS
+        
+        
+        -----------------------
+        
+        
+        JS - engine
+            
+            --> every browser has
+            --> NodeJS
+            
+            
+            e.g chrome browser has 'V8' engine
+            
+        ------------------------------------------       
+        
+        
+        
+        How JS is executing in Browser envi ?
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
