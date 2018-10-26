@@ -152,3 +152,11 @@
 2018-10-25 17:50:38,721 [Worker-215: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2018-10-25 17:50:38,722 [Worker-215: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2018-10-25 17:50:38,723 [Worker-215: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-10-25 17:56:11,352 [Worker-218: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-10-25 17:56:11,352 [Worker-218: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-10-25 17:56:11,353 [Worker-218: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-10-25 17:56:11,355 [Worker-218: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-10-25 17:57:31,517 [Worker-206: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-10-25 17:57:31,518 [Worker-206: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-10-25 17:57:31,519 [Worker-206: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-10-25 17:57:31,520 [Worker-206: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource

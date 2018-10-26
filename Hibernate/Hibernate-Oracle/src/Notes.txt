@@ -1,0 +1,8 @@
+Hibernate Persistent CRUD Methods
+---------------------------------------
+1. save
+2. saveOrUpdate
+3. update
+4. merge
+5. delete
+6. evict
