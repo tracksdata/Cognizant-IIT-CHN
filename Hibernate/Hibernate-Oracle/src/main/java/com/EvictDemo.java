@@ -14,9 +14,9 @@ public class EvictDemo {
 		Configuration cfg=new Configuration();
 		cfg.configure("hibernate.cfg.xml");
 		
-		StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
-        serviceRegistryBuilder.applySettings(cfg.getProperties());
-        ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
+	   StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
+       serviceRegistryBuilder.applySettings(cfg.getProperties());
+       ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
 		
 		SessionFactory sf=cfg.buildSessionFactory(serviceRegistry);
 		
@@ -58,6 +58,7 @@ public class EvictDemo {
 		tx.commit();
 		
 		System.out.println("--- Done ---");
+		sf.close();
 		
 		
 		
