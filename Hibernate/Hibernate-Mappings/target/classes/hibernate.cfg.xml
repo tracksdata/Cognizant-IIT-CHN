@@ -8,16 +8,16 @@
 	<session-factory>
 
 		<!-- Database connection settings -->
-		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-		<property name="connection.url">jdbc:oracle:thin:@172.16.49.128:1521:orcl</property>
-		<property name="connection.username">scott</property>
-		<property name="connection.password">tiger</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/test</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root1234</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<property name="connection.pool_size">1</property>
 
 		<!-- SQL dialect -->
-		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
 		<!-- Enable Hibernate's automatic session context management -->
 		<property name="current_session_context_class">thread</property>
@@ -30,13 +30,24 @@
 		<property name="format_sql">true</property>
 
 		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">update</property>
+		<property name="hbm2ddl.auto">update </property>
 
 		<!-- Mapping Resources -->
 		
-		<mapping class="com.onetoone.Employee" />
-		<mapping class="com.onetoone.Department" />
-		<mapping class="com.onetoone.Project" />
+<!-- 		<mapping class="com.onetoone.Employee" /> -->
+<!-- 		<mapping class="com.onetoone.Department" /> -->
+
+<!-- 		<mapping class="com.onetomany.Employee" /> -->
+<!-- 		<mapping class="com.onetomany.Department" /> -->
+		
+<!-- 		<mapping class="com.onetomany.Vehicle" /> -->
+<!-- 		<mapping class="com.onetomany.Customer" /> -->
+		
+<!-- 		<mapping class="com.manytoone.Employee" /> -->
+<!-- 		<mapping class="com.manytoone.Department" /> -->
+
+		<mapping class="com.manytomany.Course" />
+		<mapping class="com.manytomany.Student" />
 
 		
 
