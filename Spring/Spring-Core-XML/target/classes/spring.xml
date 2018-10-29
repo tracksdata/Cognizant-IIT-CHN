@@ -4,10 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="emp" class="com.Employee" lazy-init="true"
-		scope="prototype">
+	<bean id="emp" name="e1,e2,e3,http://www.abc.com" class="com.Employee" lazy-init="true" scope="prototype" abstract="false"  >
 		<property name="empId" value="1024" />
 		<property name="empName" value="Praveen" />
+		
+		
 	</bean>
 
 

@@ -7,9 +7,9 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
+ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
 
-		Employee e1 = (Employee) ac.getBean("emp");
+		Employee e1 = (Employee) ac.getBean("http://www.abc.com");
 		Employee e2 = (Employee) ac.getBean("emp1");
 		
 		//// Employee e2 = (Employee) ac.getBean("emp1");
@@ -26,6 +26,8 @@ public class Test {
 
 
 		System.out.println("--- Done");
+		
+		
 
 	}
 
