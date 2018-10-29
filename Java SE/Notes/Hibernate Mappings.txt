@@ -1,9 +1,3 @@
-Mappings
-----------------
-1. One to One
-2. One to Many (Collections)
-3. Many To One
-4. Many to Many (Collections)
-
-
-
+ABCHYD2018102910121212222001
+ABCHYD2018102910121212222002
+ABCHYD2018102910121212222003
