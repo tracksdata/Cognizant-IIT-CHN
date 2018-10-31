@@ -1,5 +1,32 @@
-ABCHYD2018102910121212222001
-ABCHYD2018102910121212222002
-ABCHYD2018102910121212222003
+Spring - Web
+------------------
+	-> Web MVC. (Http request and response)
+	-> Web Flow. (Web Transactions )
+	-> Rest API. (Rest Web Service Calls on top of http methods)
 
-ABCHYD2018102910197470
+
+Spring Web MVC
+------------------------
+
+	-> UI		(50)
+	-> Validations (30)
+	-> Data Linkage part (10)
+
+-> FC -> Dispatcher Servlet
+
+
+----------------------------------------------
+
+Spring Web MVC Configuration
+---------------------------------------
+1. XML
+2. Maven with XML
+3. Maven without XML (Java Configuration)
+4. Boot
+
+
+
+
+
+
+
