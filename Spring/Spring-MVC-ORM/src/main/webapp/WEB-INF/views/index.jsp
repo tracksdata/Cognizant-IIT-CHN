@@ -7,17 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>Welcome to Spring Web MVC</h1> <hr/>
 
-<form action="s3" method="post">
-Product Id: <input name="prodId"> <br/>
-Product Name: <input name="prodName"> <br/>
-Product Price: <input name="price"> <br/>
-
-
-<button type="submit">Save</button>
-</form>
-
-
+<a href="s2">Go to Test</a>
 
 </body>
 </html>

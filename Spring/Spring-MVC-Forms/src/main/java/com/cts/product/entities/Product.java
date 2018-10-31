@@ -1,5 +1,7 @@
 package com.cts.product.entities;
 
+import java.util.List;
+
 public class Product {
 
 	private String prodId;
@@ -7,9 +9,42 @@ public class Product {
 	private double price;
 	// private String[] branches;
 	private String branchName;
+	private String itemType;
+	private String countryName;
+	private String stateName;
+	
+	
+	
+	//private List<String> countries
+	
+	
+
+	public String getCountryName() {
+		return countryName;
+	}
+
+	public void setCountryName(String countryName) {
+		this.countryName = countryName;
+	}
+
+	public String getStateName() {
+		return stateName;
+	}
+
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
+	}
 
 	public String getBranchName() {
 		return branchName;
+	}
+
+	public String getItemType() {
+		return itemType;
+	}
+
+	public void setItemType(String itemType) {
+		this.itemType = itemType;
 	}
 
 	public void setBranchName(String branchName) {

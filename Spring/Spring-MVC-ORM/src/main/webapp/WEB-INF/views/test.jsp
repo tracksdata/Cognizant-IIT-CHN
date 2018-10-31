@@ -8,16 +8,7 @@
 </head>
 <body>
 
-<form action="s3" method="post">
-Product Id: <input name="prodId"> <br/>
-Product Name: <input name="prodName"> <br/>
-Product Price: <input name="price"> <br/>
-
-
-<button type="submit">Save</button>
-</form>
-
-
+<h1>Welcome to Test</h1> <hr/>
 
 </body>
 </html>
