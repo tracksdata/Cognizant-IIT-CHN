@@ -25,6 +25,26 @@ Spring Web MVC Configuration
 4. Boot
 
 
+Spring Rest API
+---------------------
+HTTP Methods
+	- GET -> loads data from server   
+	- POST -> Posts data to server
+	- PUT  -> Updates data to server
+	- DELETE -> Delete data from server
+
+-----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
 
 
