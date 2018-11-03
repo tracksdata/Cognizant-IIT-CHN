@@ -31,12 +31,22 @@ public class ProductRestController {
 	private ProductService ps;
 	List<Product> products = null;
 	Optional<Product> product=null;
+	
+	@GetMapping(value = "/filter/{prodName}")
+	public ResponseEntity<?> findByName(@PathVariable("prodName") String prodName) {
+		products = ps.findByName(prodName);
+		if (products.isEmpty()) {
+			return new ResponseEntity<Object>("No Records available with given name"+prodName, HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+	}
 
 	@GetMapping(value = "/")
 	public ResponseEntity<?> listAll() {
 		products = ps.findAll();
-		if (products.size() == 0) {
-			return new ResponseEntity<String>("No Records available in DB", HttpStatus.NO_CONTENT);
+		if (products.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
 		}
 
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
@@ -48,10 +58,9 @@ public class ProductRestController {
 		
 		product=ps.findById(prodId);
 		
-		System.out.println("Product Data: "+product);
-		if(product==null) {
+		if(!product.isPresent()) {
 			System.out.println("---- null");
-			return new ResponseEntity<String>("Product id "+prodId+"  not found",HttpStatus.NOT_FOUND);
+			return new ResponseEntity<String>("Product id "+prodId+"  not found",HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<Optional<Product>> (product, HttpStatus.OK);

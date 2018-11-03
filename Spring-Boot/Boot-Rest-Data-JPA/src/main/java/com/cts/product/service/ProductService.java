@@ -8,6 +8,7 @@ import com.cts.product.entities.Product;
 public interface ProductService {
 	
 	
+	public List<Product> findByName(String prodName);
 	public List<Product> findAll();
 	public  Optional<Product> findById(String prodId);
 	void deleteById(String prodId);

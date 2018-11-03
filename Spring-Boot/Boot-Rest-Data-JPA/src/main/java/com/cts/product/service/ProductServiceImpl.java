@@ -14,9 +14,15 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductDao dao;
+	
 
+	public List<Product> findByName(String prodName){
+		return dao.findByName(prodName);
+	}
+	
 	@Override
 	public List<Product> findAll() {
+		
 		// TODO Auto-generated method stub
 		return  dao.findAll();
 	}
