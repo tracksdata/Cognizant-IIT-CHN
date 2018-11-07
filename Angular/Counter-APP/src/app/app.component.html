@@ -1,0 +1,20 @@
+<div class="container mt-3">
+
+  <div class="card text-center">
+    <div class="card-header bg-primary">Counter APP</div>
+    <div class="card-body">
+      <app-counter btnLabel='+10' (totalCount)="getTotal(10)"></app-counter>
+      <app-counter btnLabel='+20' (totalCount)="getTotal(20)"></app-counter>
+      <app-counter btnLabel='-10' (totalCount)="getTotal(-10)"></app-counter>
+      <app-counter btnLabel='-5' (totalCount)="getTotal(-5)"></app-counter>
+
+
+    </div>
+
+    <div>
+      Total: <span class="badge badge-secondary">{{totalCount}}</span>  
+      
+    </div>
+  </div>
+
+</div>
