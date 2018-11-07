@@ -1,0 +1,19 @@
+<div class="container mt-3">
+  
+  <div class="alert bg-info text-center">
+    <h2>Parent Component</h2> 
+    <h3>Message: {{childMsg}} </h3>
+    <hr/>
+
+    
+    <div class="alert bg-info">
+        <app-greet btnLable='Good Morning' (outMsg)="display($event)"></app-greet>
+        <app-greet btnLable='Good Afternoon' (outMsg)="display($event)"></app-greet>
+        <app-greet btnLable='Good Evening' (outMsg)="display($event)"></app-greet>
+    </div>
+
+  </div>
+
+
+
+</div> 

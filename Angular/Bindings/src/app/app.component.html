@@ -1,0 +1,19 @@
+<div class="container mt-3">
+
+  <div class="alert bg-info text-center">
+    <h1>Hello {{name}}</h1>  <hr/>
+  <h1>{{emp.name}}</h1>
+<hr/>
+<h3>EmpName: {{empName}}</h3>
+<input [(ngModel)]="empName"  name="t2"><br/>
+<input #s1  (blur)="test(s1)" name="t2"><br/>
+<img [src]=imgUrl height="200" width="200"> 
+<button class="btn btn-primary" (keyup)="test($event)">Click Here</button>
+<p [class]=cn>
+   Data  {{s1.value}}
+</p>
+
+
+  </div>
+
+</div>

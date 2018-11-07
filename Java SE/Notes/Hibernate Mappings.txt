@@ -28,7 +28,7 @@ Spring Web MVC Configuration
 Spring Rest API
 ---------------------
 HTTP Methods
-	- GET -> loads data from server   
+	- GET -> loads data from server   xs
 	- POST -> Posts data to server
 	- PUT  -> Updates data to server
 	- DELETE -> Delete data from server

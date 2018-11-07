@@ -1,0 +1,91 @@
+limitations on traditional web-appln
+----------------------------------
+
+
+
+	   -------------------------------------------------------------
+	   
+	   Web-server                                       web-browser
+	   
+	         <------- URL request to server ---------     
+	         ------- Response with Webpage & Assets--> ( HTML ,JS , CSS)
+	    
+		                                               Browser loads-up-entire webpage
+
+													   
+	         <------- User click on link, new Request ---------     
+	         ------- Response with Webpage & Assets--> ( HTML ,JS )
+	    
+		                                               Browser loads-up-entire webpage
+
+
+            
+	   Limitations
+       
+       --> increase n/w bandwidth
+       --> on every resp , browser re-load web-page.
+       --> on every req  , server need to re-construct UI , having client state
+       
+	                                              
+      
+	   -----------------------------------------------------------------
+	   Web-server                                      web-browser
+	   -----------------------------------------------------------------
+	   
+	         <------- URL request to server ----------     
+	         ------- Response with Webpage & Assets--> ( HTML ,JS )
+	    
+		                                               Browser loads-up entire webpage
+													   
+	   
+	   
+	         <------- User click on link, new Request --     
+	         ------- Response with XML/JSON data / Templates----------> ( Data )
+	    
+		                                                Data is loaded into existing page. 
+					
+			SPA ( Single Page Application)	
+
+
+			
+	   ---------------------------------------------------------------------------
+
+       	   
+	   Modern  API -Driven Application
+	   
+	   ------------------------|
+	   |            services   |   <-------> Browser-App  ( Angular)
+	   |  DataSource <--> API  |   <-------> Mobile-App
+	   |                       |   <-------> Any-App
+	   |-------------------------
+	   
+-----------------------------------------------------
+
+NG - topics
+-------------
+
+    1. data-binding
+
+       4-ways
+
+       a. interpolation  ==> {{}}
+       b. property/attribute binding  ==> <element [property]="" />
+       c. event-binding ==> <element  (click)="handler()"/>
+    	  d. Two way binding.   [(ngModel)]
+
+
+    2. directives
+
+       3-types
+
+       1. component   ==> directive + template  ( New UI gragment )
+       2. structural  ==> modify existing template/DOM structure
+       3. attribute   ==> modify attributes
+
+    3.  Pipes
+100279441784
+
+
+
+
+

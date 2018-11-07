@@ -1,0 +1,18 @@
+<div class="container mt-3">
+  
+  <div class="alert bg-info text-center">
+    <h2>Parent Component</h2> <hr/>
+    <button class="btn btn-primary btn-space" (click)="process('Good Mormming')">Good Morning</button>
+    <button class="btn btn-primary btn-space" (click)="process('Good Afternon')">Good Afternoon</button>
+    <button class="btn btn-primary btn-space" (click)="process('Good Evening')">Good Evening</button>
+
+  </div>
+
+  <div class="alert bg-info text-center">
+   <app-greet [parentMsg]=msg>
+
+   </app-greet>
+  </div>
+
+
+</div> 

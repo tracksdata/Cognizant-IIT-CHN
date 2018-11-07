@@ -1,6 +1,8 @@
 package com.cts.product.restcontroller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +36,7 @@ public class ProductRestController {
 	Optional<Product> product=null;
 	
 	@GetMapping(value = "/filter/{prodName}")
+	
 	public ResponseEntity<?> findByName(@PathVariable("prodName") String prodName) {
 		products = ps.findByName(prodName);
 		if (products.isEmpty()) {
@@ -53,13 +57,15 @@ public class ProductRestController {
 	}
 
 	@GetMapping("/{prodId}")
-	public ResponseEntity<?> findById(@PathVariable("prodId") String prodId) {
+	public ResponseEntity<?> findById(@PathVariable("prodId") String prodId) throws Exception {
 		
+		if(prodId.equals("P001"))
+		throw new Exception();
 		
 		product=ps.findById(prodId);
 		
 		if(!product.isPresent()) {
-			System.out.println("---- null");
+			//System.out.println("---- null");
 			return new ResponseEntity<String>("Product id "+prodId+"  not found",HttpStatus.OK);
 		}
 		
@@ -94,6 +100,16 @@ public class ProductRestController {
 		ps.deleteById(prodId);
 		
 		return  new ResponseEntity<String>("Product Id with "+prodId+" Deleteted", HttpStatus.OK);
+	}
+	
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<String> handleExceptin(Exception e) {
+		return new ResponseEntity<String>("Provided URL not valid. make sure its should be /products/ "+e,HttpStatus.NOT_FOUND);
+	}
+	
+	@RequestMapping(value="/error")
+	public ResponseEntity<String> handleExceptin1() {
+		return new ResponseEntity<String>("Provided URL not valid. make sure its should be /products/ ",HttpStatus.NOT_FOUND);
 	}
 
 }
