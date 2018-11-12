@@ -11,6 +11,7 @@ public class BootApp1ApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		
 	}
 
 }

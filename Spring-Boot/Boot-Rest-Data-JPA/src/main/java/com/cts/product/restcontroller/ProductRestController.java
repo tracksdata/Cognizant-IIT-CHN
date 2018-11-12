@@ -25,7 +25,7 @@ import com.cts.product.entities.Product;
 import com.cts.product.service.ProductService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins="*")
 @ComponentScans(value = { @ComponentScan("com.cts.product.dao"), @ComponentScan("com.cts.product.service") })
 @RequestMapping(value = "/products")
 public class ProductRestController {
@@ -46,7 +46,7 @@ public class ProductRestController {
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/")
+	@GetMapping(value = "")
 	public ResponseEntity<?> listAll() {
 		products = ps.findAll();
 		if (products.isEmpty()) {
@@ -72,7 +72,7 @@ public class ProductRestController {
 		return new ResponseEntity<Optional<Product>> (product, HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/product/")
+	@PostMapping(value = "/product")
 	public ResponseEntity<?> saveProduct(@RequestBody Product product) {
 		product=ps.save(product);
 		
@@ -83,7 +83,7 @@ public class ProductRestController {
 		return new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 
-	@PutMapping(value = "/product/")
+	@PutMapping(value = "/product")
 	public ResponseEntity<?> updateProduct(@RequestBody Product product) {
 		product=ps.save(product);
 		
@@ -99,7 +99,7 @@ public class ProductRestController {
 	public ResponseEntity<?> deleteProduct(@PathVariable("prodId") String prodId) {
 		ps.deleteById(prodId);
 		
-		return  new ResponseEntity<String>("Product Id with "+prodId+" Deleteted", HttpStatus.OK);
+		return  new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@ExceptionHandler(Exception.class)

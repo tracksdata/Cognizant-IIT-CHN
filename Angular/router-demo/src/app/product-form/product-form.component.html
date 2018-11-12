@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-header">ProductForm</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-8 col-sm-6 col-md-6">
+          <form [formGroup]="productForm" (submit)="handleForm($event)">
+            <div class="form-group">
+              <label>Id</label>
+              <input class="form-control" formControlName="prodId" />
+              {{messages['prodId']}}
+            </div>
+            <div class="form-group">
+              <label>Name</label>
+              <input class="form-control" formControlName="prodName"/>
+            </div>
+            <div class="form-group">
+              <label>Price</label>
+              <input class="form-control" formControlName="price"/>
+            </div>
+            <button class="btn btn-primary">submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
