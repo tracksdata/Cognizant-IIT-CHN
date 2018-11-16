@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-header">ProductList</div>
+  <div class="card-body">
+    <table class="table table-bordered table-sm">
+      <tr *ngFor="let product of products">
+        <td>{{product.prodName}}</td>
+        <td>{{product.price|currency:'INR'}}</td>
+        <td><a [routerLink]="['/all/edit',product.prodId]"><i class="fa fa-edit"></i></a></td>
+        <td><a (click)="delete(product.prodId)"><i class="fa fa-trash"></i></a></td>
+      </tr>
+    </table>
+    <hr/>
+    <router-outlet></router-outlet>
+  </div>
+</div>
