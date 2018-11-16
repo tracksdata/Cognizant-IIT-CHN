@@ -40,7 +40,7 @@ public class ProductRestController {
 	public ResponseEntity<?> findByName(@PathVariable("prodName") String prodName) {
 		products = ps.findByName(prodName);
 		if (products.isEmpty()) {
-			return new ResponseEntity<Object>("No Records available with given name"+prodName, HttpStatus.OK);
+			return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
 		}
 
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
