@@ -1,0 +1,55 @@
+package com.cms.generator;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.Serializable;
+
+import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.id.IdentifierGenerator;
+
+public class CustomerIdGenerator implements IdentifierGenerator {
+
+	public Serializable generate(SharedSessionContractImplementor arg0, Object arg1) throws HibernateException {	
+		File file = new File("src/customerid.txt");
+		System.out.println("Working Directory = " + System.getProperty("user.dir"));
+		
+		int i = 1;
+		BufferedReader br;
+		String id = "MBC-";
+		BufferedWriter bw = null;
+		String id2=null;
+		StringBuffer sb = new StringBuffer();
+		try {
+			if (file.exists()) {
+				System.out.println( file.getAbsolutePath());
+				br = new BufferedReader(new FileReader(file));
+				i = Integer.parseInt(br.readLine());
+				i++;
+				id2=String.format("%05d", i);
+				br.close();
+			} else {
+				file.createNewFile();
+				id2=String.format("%05d", i);
+
+			}
+
+			sb.append(id);
+			sb.append(id2 );
+			bw = new BufferedWriter(new FileWriter(file));
+
+			bw.write(i + "");
+			bw.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return sb.toString();
+	}
+
+	
+
+}

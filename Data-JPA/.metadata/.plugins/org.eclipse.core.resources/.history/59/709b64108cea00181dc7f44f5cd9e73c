@@ -1,0 +1,65 @@
+package com.cms.entities;
+
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name="policy")
+public class Policy {
+	@Id
+	@Column(name="policyid")
+	private String policyId;
+	private String name;
+	@Column(name="claimablepercentage")
+	private Double claimablePercentage;
+	private String description;
+	@Column(name="multiplereg")
+	private Boolean multipleReg;
+	public Boolean getMultipleReg() {
+		return multipleReg;
+	}
+
+	public void setMultipleReg(Boolean multipleReg) {
+		this.multipleReg = multipleReg;
+	}
+
+	public Policy() {
+		
+	}
+	
+	public Policy(String policyId, String name, Double claimablePercentage, String description) {
+		this.policyId = policyId;
+		this.name = name;
+		this.claimablePercentage = claimablePercentage;
+		this.description = description;
+	}
+
+	public String getPolicyId() {
+		return policyId;
+	}
+	public void setPolicyId(String policyId) {
+		this.policyId = policyId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Double getClaimablePercentage() {
+		return claimablePercentage;
+	}
+	public void setClaimablePercentage(Double claimablePercentage) {
+		this.claimablePercentage = claimablePercentage;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+
+}

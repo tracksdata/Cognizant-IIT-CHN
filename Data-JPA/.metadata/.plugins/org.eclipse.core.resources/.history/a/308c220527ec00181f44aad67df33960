@@ -1,0 +1,839 @@
+package com.cms.restcontroller;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import com.cms.entities.ClaimReason;
+import com.cms.entities.ClaimRequest;
+import com.cms.entities.Customer;
+import com.cms.entities.Policy;
+import com.cms.entities.PolicyHolder;
+import com.cms.exception.FormException;
+import com.cms.service.ClaimReasonService;
+import com.cms.service.ClaimRequestService;
+import com.cms.service.CustomerService;
+import com.cms.service.PolicyHolderService;
+import com.cms.service.PolicyService;
+
+@RestController
+@CrossOrigin
+@ComponentScans(value = { @ComponentScan("com.cms.dao"), @ComponentScan("com.cms.service") })
+@RequestMapping(value = "/CMS")
+@ControllerAdvice
+public class ProductRestController {
+
+	@Autowired
+	private CustomerService custServe;
+
+	@Autowired
+	private PolicyHolderService phServe;
+	
+
+	@Autowired
+	private ClaimReasonService claimReasonServe;
+
+	@Autowired
+	private ClaimRequestService claimReqServe;
+
+	@Autowired
+	private PolicyService policyServe;
+
+	private List<Customer> customers;
+	private Customer customer;
+
+	private List<PolicyHolder> policyHolders;
+	private PolicyHolder policyHolder;
+
+	private List<ClaimReason> claimReasons;
+	private ClaimReason claimReason;
+
+	private List<ClaimRequest> claimRequests;
+	private ClaimRequest claimRequest ;
+
+	private List<Policy> policies;
+	private Policy policy;
+
+	// --------------------CUSTOMER----------------------------------------------------------------------------------------------------------------------------//
+	@PostMapping(value = "/customer/save")
+	public ResponseEntity<?> saveCustomer(@RequestBody Customer cust) {
+		
+		try{
+		customer = custServe.save(cust);
+
+		if (customer == null) {
+			return new ResponseEntity<String>("customer not saved", HttpStatus.OK);
+
+		}
+		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+		}
+		catch(Exception e){
+			 ErrorResponse error = new ErrorResponse();
+//			    error.portalErrorCode = e.getExceptionCode(); 
+			    error.message = e.getMessage();
+			    System.out.println("----"+error.message);
+			    return new ResponseEntity<ErrorResponse>(error, HttpStatus.OK);
+		}
+	}
+
+	@PostMapping(value = "/customer/update")
+	public ResponseEntity<?> updateCustomer(@RequestBody Customer customer) {
+		customer = custServe.save(customer);
+
+		if (customer == null) {
+			return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+
+		}
+		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/registerPolicy/{custId}/{polId}/{amount}")
+	public ResponseEntity<?> registerPolicy(@PathVariable("custId") String custId, @PathVariable("polId") String polId,
+			@PathVariable("amount") Double amount) {
+		policyHolder = custServe.registerPolicy(custId, polId, amount);
+
+		if (policyHolder == null) {
+			return new ResponseEntity<String>("policy not registered", HttpStatus.OK);
+
+		}
+		return new ResponseEntity<String>("policy " + policyHolder.getPolicy().getName()
+				+ " has been registered to customer with Id:" + policyHolder.getCustomer().getCustomerId(), HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/customer")
+	public ResponseEntity<?> listAllCustomer() {
+		customers = custServe.findAll();
+		if (customers.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/customer/name/{name}")
+	public ResponseEntity<?> serachCustomerByName(@PathVariable("name") String name) {
+		customers = custServe.findByName(name);
+		
+		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/customer/id/{custId}")
+	public ResponseEntity<?> searchCustomerById(@PathVariable("custId") String custId) {
+		customer = custServe.findById(custId).get();
+
+		if (customer == null) {
+			return new ResponseEntity<String>("Customer id " + custId + "  not found", HttpStatus.OK);
+		}
+		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/customerPolicies/id/{custId}")
+	public ResponseEntity<?> findCustomerPolicies(@PathVariable("custId") String custId) {
+		policyHolders = custServe.getCustomerPolicies(custId);
+
+		if (policyHolders.isEmpty()) {
+			return new ResponseEntity<String>("There is no registered policy for " + custId, HttpStatus.OK);
+		}
+		return new ResponseEntity<List<PolicyHolder>>(policyHolders, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimRequests/{custId}")
+	public ResponseEntity<?> customerClaimRequests(@PathVariable("custId") String custId) {
+		claimRequests = custServe.getCustomerClaimRequests(custId);
+		if (claimRequests.isEmpty()) {
+			return new ResponseEntity<String>("Customer has not raised any claim request yet.", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimRequest>>(claimRequests, HttpStatus.OK);
+	}
+
+	@PostMapping(value = "/processClaim/{claimId}/{status}/{rejectReason}")
+	public ResponseEntity<?> processClaim(@PathVariable("claimId") String claimId,@PathVariable("status") String status,@PathVariable("rejectReason") String rejectReason) {
+		claimRequest = claimReqServe.findById(claimId).get();
+		
+		Calendar c = Calendar.getInstance();
+		claimRequest.setProcessDate(c.getTime());
+		
+		claimRequest.setStatus(status);
+		claimRequest.setRejectReason(rejectReason);
+		c.add(Calendar.DATE, 10);
+		if (claimRequest == null) {
+			return new ResponseEntity<String>("There is no claim request to be processed", HttpStatus.OK);
+		}
+		if (status.equals("Approved")) {
+			SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
+			String s = sf.format(c.getTime());
+			Double claimedAmount = claimRequest.getPolicyHolder().getClaimedAmount() + claimRequest.getFinalClaimAmount();
+			claimRequest.getPolicyHolder().setClaimedAmount(claimedAmount);
+			phServe.save(claimRequest.getPolicyHolder());
+			claimRequest = claimReqServe.updateClaimRequest(claimRequest);
+			return new ResponseEntity<String>(
+					"Amount " + claimRequest.getFinalClaimAmount() + " will be credited by " + s + "", HttpStatus.OK);
+		} else {
+			claimRequest = claimReqServe.updateClaimRequest(claimRequest);
+			return new ResponseEntity<String>("Claim Request is rejected", HttpStatus.OK);
+		}
+		
+		
+	}
+
+	@PostMapping(value = "/raiseClaimReq/{policyNumber}/{claimReasonId}/{claimAmount}")
+	public ResponseEntity<?> raiseClaimRequest(@PathVariable("policyNumber") Integer policyNumber,@PathVariable("claimReasonId") String claimReasonId,@PathVariable("claimAmount") Double claimAmount) {
+		policyHolder=phServe.findById(policyNumber).get();
+		claimReason=claimReasonServe.findById(claimReasonId).get();
+		claimRequest = new ClaimRequest();
+		claimRequest.setPolicyHolder(policyHolder);
+		claimRequest.setClaimReason(claimReason);
+		claimRequest.setClaimAmount(claimAmount);
+		Calendar c = Calendar.getInstance();
+		claimRequest.setClaimDate(c.getTime());
+		c.add(Calendar.DATE, 45);
+		claimRequest.setStatus("Pending");
+		
+		Double maxClaimableAmt = (policyHolder.getPolicy().getClaimablePercentage())*(policyHolder.getTotalInsuredAmount());
+		Double remainingClaimableAmt = maxClaimableAmt - policyHolder.getClaimedAmount();
+		System.out.println(maxClaimableAmt);
+		System.out.println(remainingClaimableAmt);
+		Double finalClaimAmt = claimAmount * claimReason.getPercentage()/100;
+		
+		if (finalClaimAmt <= remainingClaimableAmt) {
+			claimRequest.setFinalClaimAmount(finalClaimAmt);
+			
+			claimRequest= claimReqServe.raiseClaimRequest(claimRequest);
+			if (claimRequest == null) {
+
+				return new ResponseEntity<String>("Claim Request not raised. ", HttpStatus.OK);
+			}
+			return new ResponseEntity<String>(
+					"The claim request("+claimRequest.getClaimId()+") for " + claimRequest.getPolicyHolder().getCustomer().getCustomerId()+ " has been posted. Claim will be processed before " +c.getTime(),HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>(
+					"Claim Request not raised. Maximum of Rs." + remainingClaimableAmt + " can be claimed",
+					HttpStatus.OK);
+		}
+
+	}
+
+	@DeleteMapping(value = "/customer/delete/{custId}")
+	public ResponseEntity<?> deleteCustomer(@PathVariable("custId") String custId) {
+		custServe.deleteById(custId);
+
+		return new ResponseEntity<String>("customer Id with " + custId + " Deleteted", HttpStatus.OK);
+	}
+
+	// ------------------POLICYHOLDER---------------------------------------------------------------------------------------------------------------------//
+
+	@GetMapping(value = "/policyHolder")
+	public ResponseEntity<?> listAllPolHold() {
+		policyHolders = phServe.findAll();
+		if (policyHolders.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<PolicyHolder>>(policyHolders, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/policyHolder/id/{policyNo}")
+	public ResponseEntity<?> findPolHoldById(@PathVariable("policyNo") Integer policyNo) {
+		policyHolder = phServe.findById(policyNo).get();
+
+		if (policyHolder == null) {
+			return new ResponseEntity<String>("PolicyHolder No " + policyNo + "  not found", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<PolicyHolder>(policyHolder, HttpStatus.OK);
+	}
+
+	@DeleteMapping(value = "/policyHolder/delete/{policyNo}")
+	public ResponseEntity<?> deletePolicyHolder(@PathVariable("policyNo") Integer policyNo) {
+		phServe.deleteById(policyNo);
+
+		return new ResponseEntity<String>("customer with Id " + policyNo + " Deleteted", HttpStatus.OK);
+	}
+
+	// --------------CLAIMREASON--------------------------------------------------------------------------------------------------------------------------------//
+
+	@PostMapping(value = "/claimReason/save")
+	public ResponseEntity<?> saveClaimReason(@RequestBody ClaimReason claimRes) {
+		claimReason = claimReasonServe.save(claimRes);
+
+		if (claimReason == null) {
+			return new ResponseEntity<String>("claimReason not saved", HttpStatus.OK);
+
+		}
+		return new ResponseEntity<String>(claimReason.getClaimReasonId() + "  is saved", HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimReason")
+	public ResponseEntity<?> listAllClaimReason() {
+		claimReasons = claimReasonServe.findAll();
+		if (claimReasons.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimReason>>(claimReasons, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimReason/id/{claimResId}")
+	public ResponseEntity<?> findClaimReasonById(@PathVariable("claimResId") String claimResId) {
+		claimReason = claimReasonServe.findById(claimResId).get();
+
+		if (claimReason == null) {
+			return new ResponseEntity<String>("Claim Reason id " + claimResId + "  not found", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<ClaimReason>(claimReason, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimReason/policyId/{policyId}")
+	public ResponseEntity<?> findClaimReasonByPolicyId(@PathVariable("policyId") String policyId) {
+		claimReasons = claimReasonServe.findAll(policyId);
+
+		if (claimReasons.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimReason>>(claimReasons, HttpStatus.OK);
+	}
+
+	@DeleteMapping(value = "/claimReason/delete/{claimResId}")
+	public ResponseEntity<?> deleteClaimReason(@PathVariable("claimResId") String claimResId) {
+		claimReasonServe.deleteById(claimResId);
+
+		return new ResponseEntity<String>("Claim Reason with Id" + claimResId + " Deleteted", HttpStatus.OK);
+	}
+
+	// ------------------CLAIMREQUEST------------------------------------------------------------------------------------------------------------------------//
+
+	@GetMapping(value = "/claimRequest")
+	public ResponseEntity<?> listAllClaimRequest() {
+		claimRequests = claimReqServe.findAll();
+		if (claimRequests.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimRequest>>(claimRequests, HttpStatus.OK);
+	}
+	
+	
+	@GetMapping(value = "/claimRequest/status/{status}")
+	public ResponseEntity<?> listAllPendingClaimRequest(@PathVariable("status") String status) {
+		claimRequests = claimReqServe.findAllByStatus(status);
+		if (claimRequests.isEmpty()) {
+			return new ResponseEntity<List<ClaimRequest>>(claimRequests, HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimRequest>>(claimRequests, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimRequest/id/{claimReqId}")
+	public ResponseEntity<?> findClaimRequestById(@PathVariable("claimReqId") String claimReqId) {
+		claimRequest = claimReqServe.findById(claimReqId).get();
+
+		if (claimRequest == null) {
+			return new ResponseEntity<String>("Claim Request id " + claimReqId + "  not found", HttpStatus.OK);
+		}
+		return new ResponseEntity<ClaimRequest>(claimRequest, HttpStatus.OK);
+	}
+
+	// ---------------POLICY-----------------------------------------------------------------------------------------------------------------------------//
+
+	@PostMapping(value = "/policy/save")
+	public ResponseEntity<?> savePolicy(@RequestBody Policy pol) {
+		policy = policyServe.save(pol);
+
+		if (policy == null) {
+			return new ResponseEntity<String>("policy not saved", HttpStatus.OK);
+
+		}
+		return new ResponseEntity<String>(policy.getPolicyId() + "  is saved", HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/policy")
+	public ResponseEntity<?> listAllPolicy() {
+		policies = policyServe.findAll();
+		if (policies.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Policy>>(policies, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/policy/id/{policyId}")
+	public ResponseEntity<?> findPolicyById(@PathVariable("policyId") String policyId) {
+		policy = policyServe.findById(policyId).get();
+
+		if (claimRequest == null) {
+			return new ResponseEntity<String>("Claim Request id " + policyId + "  not found", HttpStatus.OK);
+		}
+		return new ResponseEntity<Policy>(policy, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/policy/name/{polName}")
+	public ResponseEntity<?> listAllPolicyByName(@PathVariable("polName") String polName) {
+		policies = policyServe.findByName(polName);
+		if (policies.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Policy>>(policies, HttpStatus.OK);
+	}
+
+	@DeleteMapping(value = "/policy/delete/{polId}")
+	public ResponseEntity<?> deletePolicy(@PathVariable("polId") String polId) {
+		policyServe.deleteById(polId);
+
+		return new ResponseEntity<String>("policy Id with " + polId + " Deleteted", HttpStatus.OK);
+	}
+	
+	  @ExceptionHandler(Exception.class)
+	  public  ResponseEntity<Object> handleException(Exception e, WebRequest req) {
+		  System.out.println("Error occured "+e);
+		  ErrorResponse er = new ErrorResponse();
+		  er.message=e.getMessage();
+		  return new ResponseEntity<>(er, HttpStatus.OK);
+	        
+	    }
+
+
+	// ---------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+}
+
+
+
+/*package com.cms.restcontroller;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cms.entities.Admin;
+import com.cms.entities.ClaimReason;
+import com.cms.entities.ClaimRequest;
+import com.cms.entities.Customer;
+import com.cms.entities.Policy;
+import com.cms.entities.PolicyHolder;
+import com.cms.exception.FormException;
+import com.cms.service.AdminService;
+import com.cms.service.ClaimReasonService;
+import com.cms.service.ClaimRequestService;
+import com.cms.service.CustomerService;
+import com.cms.service.PolicyHolderService;
+import com.cms.service.PolicyService;
+
+@RestController
+@CrossOrigin
+@ComponentScans(value = { @ComponentScan("com.cms.dao"), @ComponentScan("com.cms.service") })
+@RequestMapping(value = "/CMS")
+public class ProductRestController {
+
+	@Autowired
+	private AdminService adminServe;
+	@Autowired
+	private CustomerService custServe;
+
+	@Autowired
+	private PolicyHolderService phServe;
+
+	@Autowired
+	private ClaimReasonService claimReasonServe;
+
+	@Autowired
+	private ClaimRequestService claimReqServe;
+
+	@Autowired
+	private PolicyService policyServe;
+
+	private Admin admin;
+	private List<Customer> customers;
+	private Customer customer;
+
+	private List<PolicyHolder> policyHolders;
+	private PolicyHolder policyHolder;
+
+	private List<ClaimReason> claimReasons;
+	private ClaimReason claimReason;
+
+	private List<ClaimRequest> claimRequests;
+	private ClaimRequest claimRequest ;
+
+	private List<Policy> policies;
+	private Policy policy;
+
+	//----------------Admin----------------
+	
+	@GetMapping(value="/login/{userId}/{password}")
+	public ResponseEntity<?> findUser(@PathVariable("userId") String userId,@PathVariable("password") String password) {
+		admin = adminServe.findUser(userId,password);
+
+		if (admin == null) {
+			return new ResponseEntity<Admin>(admin, HttpStatus.OK);
+		}
+		return new ResponseEntity<Admin>(admin, HttpStatus.OK);
+	}
+	
+	// --------------------CUSTOMER----------------------------------------------------------------------------------------------------------------------------//
+	@PostMapping(value = "/customer/save")
+	public ResponseEntity<?> saveProduct(@RequestBody Customer cust) {
+		customer = custServe.save(cust);
+
+		if (customer == null) {
+			return new ResponseEntity<String>("customer not saved", HttpStatus.OK);
+
+		}
+		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+	}
+
+	@PostMapping(value = "/customer/update")
+	public ResponseEntity<?> updateProduct(@RequestBody Customer customer) {
+		customer = custServe.save(customer);
+
+		if (customer == null) {
+			return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+
+		}
+		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/registerPolicy/{custId}/{polId}/{amount}")
+	public ResponseEntity<?> registerPolicy(@PathVariable("custId") String custId, @PathVariable("polId") String polId,
+			@PathVariable("amount") Double amount) {
+		policyHolder = custServe.registerPolicy(custId, polId, amount);
+
+		if (policyHolder == null) {
+			return new ResponseEntity<String>("policy not registered", HttpStatus.OK);
+
+		}
+		return new ResponseEntity<String>("policy " + policyHolder.getPolicy().getName()
+				+ " has been registered to customer with Id:" + policyHolder.getCustomer().getCustomerId(), HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/customer")
+	public ResponseEntity<?> listAllCustomer() {
+		customers = custServe.findAll();
+		if (customers.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/customer/name/{name}")
+	public ResponseEntity<?> serachCustomerByName(@PathVariable("name") String name) {
+		customers = custServe.findByName(name);
+		
+		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/customer/id/{custId}")
+	public ResponseEntity<?> searchCustomerById(@PathVariable("custId") String custId) {
+		customer = custServe.findById(custId).get();
+
+		if (customer == null) {
+			return new ResponseEntity<String>("Customer id " + custId + "  not found", HttpStatus.OK);
+		}
+		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/customerPolicies/id/{custId}")
+	public ResponseEntity<?> findCustomerPolicies(@PathVariable("custId") String custId) {
+		policyHolders = custServe.getCustomerPolicies(custId);
+
+		if (policyHolders.isEmpty()) {
+			return new ResponseEntity<String>("There is no registered policy for " + custId, HttpStatus.OK);
+		}
+		return new ResponseEntity<List<PolicyHolder>>(policyHolders, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimRequests/{custId}")
+	public ResponseEntity<?> customerClaimRequests(@PathVariable("custId") String custId) {
+		claimRequests = custServe.getCustomerClaimRequests(custId);
+		if (claimRequests.isEmpty()) {
+			return new ResponseEntity<String>("Customer has not raised any claim request yet.", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimRequest>>(claimRequests, HttpStatus.OK);
+	}
+
+	@PostMapping(value = "/processClaim/{claimId}/{status}/{rejectReason}")
+	public ResponseEntity<?> processClaim(@PathVariable("claimId") String claimId,@PathVariable("status") String status,@PathVariable("rejectReason") String rejectReason) {
+		claimRequest = claimReqServe.findById(claimId).get();
+		
+		Calendar c = Calendar.getInstance();
+		claimRequest.setProcessDate(c.getTime());
+		
+		claimRequest.setStatus(status);
+		claimRequest.setRejectReason(rejectReason);
+		c.add(Calendar.DATE, 10);
+		if (claimRequest == null) {
+			return new ResponseEntity<String>("There is no claim request to be processed", HttpStatus.OK);
+		}
+		if (status.equals("Approved")) {
+			SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
+			String s = sf.format(c.getTime());
+			Double claimedAmount = claimRequest.getPolicyHolder().getClaimedAmount() + claimRequest.getFinalClaimAmount();
+			claimRequest.getPolicyHolder().setClaimedAmount(claimedAmount);
+			phServe.save(claimRequest.getPolicyHolder());
+			claimRequest = claimReqServe.updateClaimRequest(claimRequest);
+			return new ResponseEntity<String>(
+					"Amount " + claimRequest.getFinalClaimAmount() + " will be credited by " + s + "", HttpStatus.OK);
+		} else {
+			claimRequest = claimReqServe.updateClaimRequest(claimRequest);
+			return new ResponseEntity<String>("Claim Request is rejected", HttpStatus.OK);
+		}
+		
+		
+	}
+
+	@PostMapping(value = "/raiseClaimReq/{policyNumber}/{claimReasonId}/{claimAmount}")
+	public ResponseEntity<?> raiseClaimRequest(@PathVariable("policyNumber") Integer policyNumber,@PathVariable("claimReasonId") String claimReasonId,@PathVariable("claimAmount") Double claimAmount) {
+		policyHolder=phServe.findById(policyNumber).get();
+		claimReason=claimReasonServe.findById(claimReasonId).get();
+		//System.out.println(policyHolder.getPolicyNumber()+" "+policyHolder.getClaimedAmount()+" "+policyHolder.getTotalInsuredAmount()+" "+policyHolder.getCustomer().getCustomerId()+" "+policyHolder.getPolicy().getPolicyId());
+		claimRequest = new ClaimRequest();
+		claimRequest.setPolicyHolder(policyHolder);
+		claimRequest.setClaimReason(claimReason);
+		claimRequest.setClaimAmount(claimAmount);
+		Calendar c = Calendar.getInstance();
+		claimRequest.setClaimDate(c.getTime());
+		c.add(Calendar.DATE, 45);
+		claimRequest.setStatus("Pending");
+		
+		Double maxClaimableAmt = (policyHolder.getPolicy().getClaimablePercentage())*(policyHolder.getTotalInsuredAmount());
+		Double remainingClaimableAmt = maxClaimableAmt - policyHolder.getClaimedAmount();
+		System.out.println(maxClaimableAmt);
+		System.out.println(remainingClaimableAmt);
+		Double finalClaimAmt = claimAmount * claimReason.getPercentage()/100;
+		
+		if (finalClaimAmt <= remainingClaimableAmt) {
+			claimRequest.setFinalClaimAmount(finalClaimAmt);
+			
+			claimRequest= claimReqServe.raiseClaimRequest(claimRequest);
+			if (claimRequest == null) {
+
+				return new ResponseEntity<String>("Claim Request not raised. ", HttpStatus.OK);
+			}
+			return new ResponseEntity<String>(
+					"The claim request("+claimRequest.getClaimId()+") for " + claimRequest.getPolicyHolder().getCustomer().getCustomerId()+ " has been posted. Claim will be processed before " +c.getTime(),HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>(
+					"Claim Request not raised. Maximum of Rs." + remainingClaimableAmt + " can be claimed",
+					HttpStatus.OK);
+		}
+
+	}
+
+	@DeleteMapping(value = "/customer/delete/{custId}")
+	public ResponseEntity<?> deleteCustomer(@PathVariable("custId") String custId) {
+		custServe.deleteById(custId);
+
+		return new ResponseEntity<String>("customer Id with " + custId + " Deleteted", HttpStatus.OK);
+	}
+
+	// ------------------POLICYHOLDER---------------------------------------------------------------------------------------------------------------------//
+
+	@GetMapping(value = "/policyHolder")
+	public ResponseEntity<?> listAllPolHold() {
+		policyHolders = phServe.findAll();
+		if (policyHolders.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<PolicyHolder>>(policyHolders, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/policyHolder/id/{policyNo}")
+	public ResponseEntity<?> findPolHoldById(@PathVariable("policyNo") Integer policyNo) {
+		policyHolder = phServe.findById(policyNo).get();
+
+		if (policyHolder == null) {
+			return new ResponseEntity<String>("PolicyHolder No " + policyNo + "  not found", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<PolicyHolder>(policyHolder, HttpStatus.OK);
+	}
+
+	@DeleteMapping(value = "/policyHolder/delete/{policyNo}")
+	public ResponseEntity<?> deletePolicyHolder(@PathVariable("policyNo") Integer policyNo) {
+		phServe.deleteById(policyNo);
+
+		return new ResponseEntity<String>("customer with Id " + policyNo + " Deleteted", HttpStatus.OK);
+	}
+
+	// --------------CLAIMREASON--------------------------------------------------------------------------------------------------------------------------------//
+
+	@PostMapping(value = "/claimReason/save")
+	public ResponseEntity<?> saveClaimReason(@RequestBody ClaimReason claimRes) {
+		claimReason = claimReasonServe.save(claimRes);
+
+		if (claimReason == null) {
+			return new ResponseEntity<String>("claimReason not saved", HttpStatus.OK);
+
+		}
+		return new ResponseEntity<String>(claimReason.getClaimReasonId() + "  is saved", HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimReason")
+	public ResponseEntity<?> listAllClaimReason() {
+		claimReasons = claimReasonServe.findAll();
+		if (claimReasons.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimReason>>(claimReasons, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimReason/id/{claimResId}")
+	public ResponseEntity<?> findClaimReasonById(@PathVariable("claimResId") String claimResId) {
+		claimReason = claimReasonServe.findById(claimResId).get();
+
+		if (claimReason == null) {
+			return new ResponseEntity<String>("Claim Reason id " + claimResId + "  not found", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<ClaimReason>(claimReason, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimReason/policyId/{policyId}")
+	public ResponseEntity<?> findClaimReasonByPolicyId(@PathVariable("policyId") String policyId) {
+		claimReasons = claimReasonServe.findAll(policyId);
+
+		if (claimReasons.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimReason>>(claimReasons, HttpStatus.OK);
+	}
+
+	@DeleteMapping(value = "/claimReason/delete/{claimResId}")
+	public ResponseEntity<?> deleteClaimReason(@PathVariable("claimResId") String claimResId) {
+		claimReasonServe.deleteById(claimResId);
+
+		return new ResponseEntity<String>("Claim Reason with Id" + claimResId + " Deleteted", HttpStatus.OK);
+	}
+
+	// ------------------CLAIMREQUEST------------------------------------------------------------------------------------------------------------------------//
+
+	@GetMapping(value = "/claimRequest")
+	public ResponseEntity<?> listAllClaimRequest() {
+		claimRequests = claimReqServe.findAll();
+		if (claimRequests.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimRequest>>(claimRequests, HttpStatus.OK);
+	}
+	
+	
+	@GetMapping(value = "/claimRequest/status/{status}")
+	public ResponseEntity<?> listAllPendingClaimRequest(@PathVariable("status") String status) {
+		claimRequests = claimReqServe.findAllByStatus(status);
+		if (claimRequests.isEmpty()) {
+			return new ResponseEntity<List<ClaimRequest>>(claimRequests, HttpStatus.OK);
+		}
+
+		return new ResponseEntity<List<ClaimRequest>>(claimRequests, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/claimRequest/id/{claimReqId}")
+	public ResponseEntity<?> findClaimRequestById(@PathVariable("claimReqId") String claimReqId) {
+		claimRequest = claimReqServe.findById(claimReqId).get();
+
+		if (claimRequest == null) {
+			return new ResponseEntity<String>("Claim Request id " + claimReqId + "  not found", HttpStatus.OK);
+		}
+		return new ResponseEntity<ClaimRequest>(claimRequest, HttpStatus.OK);
+	}
+
+	// ---------------POLICY-----------------------------------------------------------------------------------------------------------------------------//
+
+	@PostMapping(value = "/policy/save")
+	public ResponseEntity<?> savePolicy(@RequestBody Policy pol) {
+		policy = policyServe.save(pol);
+
+		if (policy == null) {
+			return new ResponseEntity<String>("policy not saved", HttpStatus.OK);
+
+		}
+		return new ResponseEntity<String>(policy.getPolicyId() + "  is saved", HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/policy")
+	public ResponseEntity<?> listAllPolicy() {
+		policies = policyServe.findAll();
+		if (policies.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Policy>>(policies, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/policy/id/{policyId}")
+	public ResponseEntity<?> findPolicyById(@PathVariable("policyId") String policyId) {
+		policy = policyServe.findById(policyId).get();
+
+		if (claimRequest == null) {
+			return new ResponseEntity<String>("Claim Request id " + policyId + "  not found", HttpStatus.OK);
+		}
+		return new ResponseEntity<Policy>(policy, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/policy/name/{polName}")
+	public ResponseEntity<?> listAllPolicyByName(@PathVariable("polName") String polName) {
+		policies = policyServe.findByName(polName);
+		if (policies.isEmpty()) {
+			return new ResponseEntity<String>("No Records available in DB", HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Policy>>(policies, HttpStatus.OK);
+	}
+
+	@DeleteMapping(value = "/policy/delete/{polId}")
+	public ResponseEntity<?> deletePolicy(@PathVariable("polId") String polId) {
+		policyServe.deleteById(polId);
+
+		return new ResponseEntity<String>("policy Id with " + polId + " Deleteted", HttpStatus.OK);
+	}
+	
+	  @ExceptionHandler(FormException.class)
+	
+	      public ResponseEntity<Exception> exceptionHandler(Exception ex) {
+	  
+	         
+	  
+	          return new ResponseEntity<Exception>(ex, HttpStatus.OK);
+	  
+	      }
+
+
+	// ---------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+}*/

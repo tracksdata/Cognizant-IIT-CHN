@@ -1,0 +1,15 @@
+# create and drop tables and sequences, loads import.sql
+spring.jpa.hibernate.ddl-auto=create
+# MySQL settings
+spring.datasource.url=jdbc:oracle:thin:@172.16.49.128:1521:orcl
+spring.datasource.username=scott
+spring.datasource.password=tiger
+spring.datasource.driver.class=oracle.jdbc.driver.OracleDriver
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.OracleDialect
+
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+
+server.port=1243
